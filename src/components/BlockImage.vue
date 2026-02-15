@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import '@fontsource-variable/montserrat';
 const props = defineProps<{
     imageUrl : string,
 }>()
@@ -44,6 +43,7 @@ img{
     background-color: rgba(0, 0, 0, 0.5);
     line-height: 90px;
     text-transform: uppercase;
+    overflow-wrap: break-word;
     display: flex;
     align-items: center;
     padding: 0px 100px 30px 60px;
@@ -54,6 +54,11 @@ img{
     .textBlock{
         font-size: 46px;
         line-height: 50px;
+    }
+}
+@media (max-width: 768px){
+    .textBlock{
+        background: none;
     }
 }
 </style>
