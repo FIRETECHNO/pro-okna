@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MyButton from './components/MyButton.vue';
+import MyAccentButton from './components/MyAccentButton.vue';
 
 </script>
 
@@ -27,7 +27,7 @@ import MyButton from './components/MyButton.vue';
                 ул. Стахановская, 43
               </div>
 
-              <MyButton>Вызвать мастера на замер</MyButton>
+              <MyAccentButton>Вызвать мастера на замер</MyAccentButton>
             </v-col>
           </v-row>
           <v-divider></v-divider>
