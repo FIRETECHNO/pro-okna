@@ -45,7 +45,7 @@ import MyAccentButton from './components/MyAccentButton.vue';
       </v-app-bar>
 
       <v-main style="margin-top: 127px;">
-        <v-container>
+        <v-container class="container" style="width: 100%; height: 100%; margin: 0; padding: 16px 0px;">
           <router-view />
         </v-container>
       </v-main>
@@ -53,4 +53,11 @@ import MyAccentButton from './components/MyAccentButton.vue';
   </v-responsive>
 </template>
 
-<style scoped></style>
+<style scoped>
+@media (min-width:300px) {
+  .container{
+    all: initial;
+  }
+}
+
+</style>
