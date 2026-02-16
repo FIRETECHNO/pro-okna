@@ -44,7 +44,11 @@ let { icon, name, text } = props
   padding-top: 10px;
   font-family: 'Montserrat Variable';
 }
-
+@media (min-width: 1080px) {
+  .container-advantage {
+    text-align: center;
+  }
+}
 @media (min-width: 768px) and (max-width: 1100px) {
   .container-advantage-info {
     padding-left: 3px;
