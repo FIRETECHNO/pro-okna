@@ -1,41 +1,42 @@
 <script setup lang="ts">
 const props = defineProps<{
-    imageUrl : string,
+    imageUrl: string,
 }>()
 
 let imageUrl = props.imageUrl;
 
 </script>
 <template>
-    <v-container class="container" :style="{backgroundImage : 'url(' + imageUrl + ')'}">
+    <v-container class="container" :style="{ backgroundImage: 'url(' + imageUrl + ')' }">
         <v-row style="height: 100%; margin: 0;">
             <v-col cols="8" class="textBlock">
                 <div>
                     <slot name="mainText"></slot>
                     <slot style="color: #E52E2A;" name="discount"></slot>
                 </div>
-                
+
             </v-col>
         </v-row>
     </v-container>
 </template>
 <style scoped>
-
-img{
+img {
     margin: 0;
     padding: 0;
 }
-.container{
+
+.container {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     padding: 0;
     background-size: 100% 100%;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
 }
-.textBlock{
+
+.textBlock {
     color: white;
     font-size: 80px;
     font-family: "Montserrat Variable", sans-serif;
@@ -50,14 +51,16 @@ img{
     clip-path: polygon(0% 0%, 60% 0%, 100% 50%, 60% 100%, 0% 100%);
 
 }
+
 @media (max-width:880px) {
-    .textBlock{
+    .textBlock {
         font-size: 46px;
         line-height: 50px;
     }
 }
-@media (max-width: 768px){
-    .textBlock{
+
+@media (max-width: 768px) {
+    .textBlock {
         background: none;
     }
 }

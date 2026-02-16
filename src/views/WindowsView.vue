@@ -5,7 +5,7 @@ import imageUrl from '@/assets/images/ViewsBlockImage.jpg'
 <template>
   <BlockImage :image-url="imageUrl">
     <template #mainText>
-      скидки на окна до 
+      окна<br> со скидкой до
     </template>
     <template #discount>
       <p style="color: #E52E2A;">-40%</p>
