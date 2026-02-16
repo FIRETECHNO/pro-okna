@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import MyAccentButton from './components/MyAccentButton.vue';
-
+import MyAccentButton from './components/MyAccentButton.vue'
 </script>
 
 <template>
@@ -10,11 +9,9 @@ import MyAccentButton from './components/MyAccentButton.vue';
         <v-container>
           <v-row class="flex justify-between">
             <v-col class="flex justify-start" cols="auto">
-              <img src="/icons/logo-old-variant.png" style="height: 70px;" :draggable="false" />
+              <img src="/icons/logo-old-variant.png" style="height: 70px" :draggable="false" />
               <div class="flex flex-col justify-center">
-                <a href="tel:+7(950)473-91-17" class="underline">
-                  Заказать звонок
-                </a>
+                <a href="tel:+7(950)473-91-17" class="underline"> Заказать звонок </a>
                 <a href="tel:+7(950)473-91-17" class="font-bold no-underline">
                   <v-icon size="20">mdi-phone</v-icon>
                   +7 (950) 473-91-17
@@ -32,20 +29,19 @@ import MyAccentButton from './components/MyAccentButton.vue';
           </v-row>
           <v-divider></v-divider>
           <v-row class="flex flex-between">
-            <v-col cols="3" class="flex justify-center">
-              Окна
-            </v-col>
+            <v-col cols="3" class="flex justify-center"> Окна </v-col>
             <v-col cols="3" class="flex justify-center">Балконы</v-col>
             <v-col cols="3" class="flex justify-center">Натяжные потолки</v-col>
             <v-col cols="3" class="flex justify-center">Ремонт окон</v-col>
           </v-row>
         </v-container>
-
-
       </v-app-bar>
 
-      <v-main style="margin-top: 127px;">
-        <v-container class="container" style="width: 100%; height: 100%; margin: 0; padding: 16px 0px;">
+      <v-main style="margin-top: 127px">
+        <v-container
+          class="container"
+          style="max-width: 100% !important; height: 100%; margin: 0; padding: 16px 0px"
+        >
           <router-view />
         </v-container>
       </v-main>
@@ -53,11 +49,4 @@ import MyAccentButton from './components/MyAccentButton.vue';
   </v-responsive>
 </template>
 
-<style scoped>
-@media (min-width:300px) {
-  .container{
-    all: initial;
-  }
-}
-
-</style>
+<style scoped></style>
