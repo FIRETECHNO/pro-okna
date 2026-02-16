@@ -63,10 +63,8 @@ const advantages = [
   font-weight: 600;
   text-transform: uppercase;
   line-height: 50px;
-  padding-bottom: 6px;
 }
 .block-advantages {
-  max-width: 100% !important;
   display: flex;
   padding: 6px 8px 0px 8px;
   justify-items: space-between;
