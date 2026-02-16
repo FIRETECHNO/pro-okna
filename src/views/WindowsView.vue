@@ -40,13 +40,8 @@ const advantages = [
   </v-container>
   <p class="header-advantages">работаем <span style="color: #e52e2a">C 2004 года</span></p>
   <v-container class="block-advantages">
-    <Advantage
-      v-for="advantage in advantages"
-      :key="advantage.icon"
-      :icon="advantage.icon"
-      :name="advantage.name"
-      :text="advantage.text"
-    >
+    <Advantage v-for="advantage in advantages" :key="advantage.icon" :icon="advantage.icon" :name="advantage.name"
+      :text="advantage.text">
     </Advantage>
   </v-container>
 </template>
@@ -56,6 +51,7 @@ const advantages = [
   padding: 16px 0px 0px 0px;
   height: 65vh;
 }
+
 .header-advantages {
   text-align: center;
   font-size: 25px;
@@ -65,8 +61,9 @@ const advantages = [
   line-height: 50px;
   padding-bottom: 6px;
 }
+
 .block-advantages {
-  max-width: 100% !important;
+  /* max-width: 100% !important; */
   display: flex;
   padding: 6px 8px 0px 8px;
   justify-items: space-between;
@@ -79,6 +76,7 @@ const advantages = [
     justify-content: center;
     padding-top: 0px;
   }
+
   .header-advantages {
     font-size: 20px;
   }
