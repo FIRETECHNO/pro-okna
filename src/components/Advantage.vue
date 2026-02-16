@@ -21,6 +21,7 @@ let { icon, name, text } = props
 .container-advantage {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 .advantage-icon {
   border-radius: 50px;
@@ -44,9 +45,9 @@ let { icon, name, text } = props
   padding-top: 10px;
   font-family: 'Montserrat Variable';
 }
-@media (min-width: 1080px) {
+@media (max-width: 768px) {
   .container-advantage {
-    text-align: center;
+    justify-content: start;
   }
 }
 @media (min-width: 768px) and (max-width: 1100px) {
