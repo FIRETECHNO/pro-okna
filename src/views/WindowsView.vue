@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BlockImage from '@/components/BlockImage.vue'
-import imageUrl from '@/assets/images/ViewsBlockImage.jpg'
 import Advantage from '@/components/Advantage.vue'
+import CardService from '@/components/CardService.vue'
 
 const advantages = [
   {
@@ -25,10 +25,33 @@ const advantages = [
     text: 'На материалы и выполненные работы.',
   },
 ]
+
+const services = [
+  {
+    imageUrl: '/images/services/CustomWindows.png',
+    textButton: 'Окна на заказ',
+    variantsService: 'без монтажа',
+  },
+  {
+    imageUrl: '/images/services/InstallationWindows.png',
+    textButton: 'Окна с монтажем',
+    variantsService: 'под ключ',
+  },
+  {
+    imageUrl: '/images/services/Glazing.png',
+    textButton: 'Остекление',
+    variantsService: 'веранды, беседки, терассы',
+  },
+  {
+    imageUrl: '/images/services/CountryWindows.png',
+    textButton: 'Дачные окна',
+    variantsService: '',
+  },
+]
 </script>
 <template>
   <v-container class="block-image">
-    <BlockImage :image-url="imageUrl">
+    <BlockImage image-url="/images/ViewsBlockImage.jpg">
       <template #mainText>
         окна<br />
         со скидкой до
@@ -40,9 +63,25 @@ const advantages = [
   </v-container>
   <p class="header-advantages">работаем <span style="color: #e52e2a">C 2004 года</span></p>
   <v-container class="block-advantages">
-    <Advantage v-for="advantage in advantages" :key="advantage.icon" :icon="advantage.icon" :name="advantage.name"
-      :text="advantage.text">
+    <Advantage
+      v-for="advantage in advantages"
+      :key="advantage.name"
+      :icon="advantage.icon"
+      :name="advantage.name"
+      :text="advantage.text"
+    >
     </Advantage>
+  </v-container>
+  <p class="header-services">наши услуги</p>
+  <v-container class="block-services">
+    <CardService
+      v-for="service in services"
+      :key="service.imageUrl"
+      :image-url="service.imageUrl"
+      :text-button="service.textButton"
+      :variants-service="service.variantsService"
+    >
+    </CardService>
   </v-container>
 </template>
 <style scoped>
@@ -67,6 +106,22 @@ const advantages = [
   justify-items: space-between;
 }
 
+.header-services {
+  font-size: 24px;
+  font-family: 'Montserrat Variable';
+  font-weight: 700;
+  line-height: 150%;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.block-services {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: auto;
+  max-width: 1200px;
+}
+
 @media (max-width: 767px) {
   .block-advantages {
     flex-direction: column;
@@ -77,6 +132,9 @@ const advantages = [
 
   .header-advantages {
     font-size: 20px;
+  }
+  .header-services {
+    font-size: 16px;
   }
 }
 </style>

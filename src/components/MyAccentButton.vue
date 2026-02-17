@@ -9,14 +9,13 @@
 <style scoped>
 button {
   font-size: 19px;
-
   user-select: none;
   padding: 8px 27px;
   border: none;
   border-radius: 6px;
   font-weight: 700;
   color: white;
-  background-image: linear-gradient(104deg, #E52E2A 39.5%, #7F1A17 100%);
+  background-image: linear-gradient(104deg, #e52e2a 39.5%, #7f1a17 100%);
   background-size: 200% 100%;
   background-position: 0% 50%;
   transition: background-position 0.1s ease-out;
