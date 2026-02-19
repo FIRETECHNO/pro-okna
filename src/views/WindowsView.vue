@@ -74,14 +74,17 @@ const services = [
   </v-container>
   <p class="header-services">наши услуги</p>
   <v-container class="block-services">
-    <CardService
-      v-for="service in services"
-      :key="service.imageUrl"
-      :image-url="service.imageUrl"
-      :text-button="service.textButton"
-      :variants-service="service.variantsService"
-    >
-    </CardService>
+    <v-row style="flex-wrap: nowrap">
+      <v-col cols="12" sm="12" md="3" lg="3" v-for="service in services" class="card-service">
+        <CardService
+          :key="service.imageUrl"
+          :image-url="service.imageUrl"
+          :text-button="service.textButton"
+          :variants-service="service.variantsService"
+        >
+        </CardService>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 <style scoped>
@@ -119,9 +122,13 @@ const services = [
   display: flex;
   justify-content: space-between;
   overflow-x: auto;
-  max-width: 1200px;
 }
-
+.card-service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+}
 @media (max-width: 767px) {
   .block-advantages {
     flex-direction: column;
