@@ -2,6 +2,7 @@
 import BlockImage from '@/components/BlockImage.vue'
 import Advantage from '@/components/Advantage.vue'
 import CardService from '@/components/CardService.vue'
+import FormWindowsView from '@/Form/FormWindowsView.vue'
 
 const advantages = [
   {
@@ -86,6 +87,7 @@ const services = [
       </v-col>
     </v-row>
   </v-container>
+  <FormWindowsView></FormWindowsView>
 </template>
 <style scoped>
 .block-image {

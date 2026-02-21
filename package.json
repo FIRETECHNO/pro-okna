@@ -15,7 +15,9 @@
     "@fontsource-variable/montserrat": "^5.2.8",
     "@fontsource/montserrat": "^5.2.8",
     "@mdi/font": "^7.4.47",
+    "@vee-validate/yup": "^4.15.1",
     "pinia": "^3.0.4",
+    "vee-validate": "^4.15.1",
     "vue": "^3.5.27",
     "vue-router": "^5.0.1",
     "vuetify": "^3.11.8"
