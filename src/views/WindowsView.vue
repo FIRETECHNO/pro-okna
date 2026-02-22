@@ -2,7 +2,7 @@
 import BlockImage from '@/components/BlockImage.vue'
 import Advantage from '@/components/Advantage.vue'
 import CardService from '@/components/CardService.vue'
-import FormWindowsView from '@/Form/FormWindowsView.vue'
+import FormWindowsView from '@/components/Form/FormWindowsView.vue'
 
 const advantages = [
   {

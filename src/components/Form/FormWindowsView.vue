@@ -42,58 +42,63 @@ function onInvalid(error: any) {
 const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
 </script>
 <template>
-  <v-container class="form-block-container">
-    <p class="text-by-form">Оставьте заявку — мы перезвоним в течение 15 минут</p>
-    <v-form @submit="onSubmitRequest" class="form-container">
-      <input
-        class="text-input-container"
-        type="login"
-        name="login"
-        v-model="login.value.value"
-        placeholder="ФИО *"
-        required
-      />
-      <input
-        class="text-input-container"
-        type="phone"
-        name="phone"
-        v-model="phone.value.value"
-        placeholder="Телефон *"
-        required
-      />
-      <input
-        class="text-input-container"
-        type="email"
-        name="email"
-        v-model="email.value.value"
-        placeholder="Почта *"
-        required
-      />
-      <input
-        class="text-input-container comment-input"
-        placeholder="Комментарий"
-        type="comment"
-        name="comment"
-        v-model="comment.value.value"
-      />
-      <div
-        style="height: 100px"
-        id="captcha-container"
-        class="smart-captcha"
-        data-sitekey="ysc1_A8A6utxbx5AKfmsemexgT466KnOJY5tlD4afLP7tf09e6631"
-      ></div>
-      <div class="result-form">{{ result }}</div>
-      <button type="submit" class="button-form">Отправить</button>
-    </v-form>
+  <v-container style="max-width: 100% !important; padding: 0px">
+    <v-row class="form-block-container">
+      <v-col cols="12" md="4" style="height: 1%">
+        <p class="text-by-form">Оставьте заявку — мы перезвоним в течение 15 минут</p>
+      </v-col>
+      <v-col cols="12" md="4" class="form-container">
+        <v-form @submit="onSubmitRequest">
+          <input
+            class="text-input-container"
+            type="login"
+            name="login"
+            v-model="login.value.value"
+            placeholder="ФИО *"
+            required
+          />
+          <input
+            class="text-input-container"
+            type="phone"
+            name="phone"
+            v-model="phone.value.value"
+            placeholder="Телефон *"
+            required
+          />
+          <input
+            class="text-input-container"
+            type="email"
+            name="email"
+            v-model="email.value.value"
+            placeholder="Почта *"
+            required
+          />
+          <input
+            class="text-input-container comment-input"
+            placeholder="Комментарий"
+            type="comment"
+            name="comment"
+            v-model="comment.value.value"
+          />
+          <div
+            style="height: 100px"
+            id="captcha-container"
+            class="smart-captcha"
+            data-sitekey="ysc1_A8A6utxbx5AKfmsemexgT466KnOJY5tlD4afLP7tf09e6631"
+          ></div>
+          <div class="result-form">{{ result }}</div>
+          <button type="submit" class="button-form">Отправить</button>
+        </v-form>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 <style scoped>
 .form-block-container {
   display: flex;
-  justify-content: center;
-  max-width: 100% !important;
-  height: 65vh;
+  justify-content: space-around;
   padding-top: 5vh;
+  height: 75vh;
   background-image: url('/images/FormBlock.png');
   background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
@@ -102,7 +107,6 @@ const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
 }
 .text-by-form {
   font-size: 3vw;
-  width: 40%;
   font-family: 'Montserrat Variable';
   font-weight: 600;
   line-height: 150%;
@@ -111,12 +115,9 @@ const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
   overflow-wrap: break-word;
 }
 .form-container {
-  height: 75%;
-  width: 40%;
-  padding-left: 12vw;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: flex-start;
   align-content: space-between;
 }
 .text-input-container {
@@ -127,8 +128,8 @@ const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
   font-size: clamp(12px, 1.5vw, 3vw);
   margin-top: 10px;
   padding-left: 20px;
-  height: 14%;
-  min-width: 250px;
+  width: 70%;
+  height: 15%;
 }
 
 .comment-input {
@@ -136,13 +137,14 @@ const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
   padding-bottom: 5%;
   white-space: normal;
   text-wrap: pre-wrap;
+  height: 22%;
 }
 .smart-captcha {
   border-radius: 15px;
-  height: 28%;
   margin-top: 12px;
-  min-width: 250px;
-  min-height: 150px;
+  min-width: 100px;
+  width: 70%;
+  height: 22%;
 }
 .result-form {
   font-family: 'Montserrat Variable';
@@ -150,11 +152,11 @@ const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
   line-height: 100%;
   color: white;
   text-align: center;
-  min-width: 250px;
+  width: 70%;
+  margin-top: 4px;
 }
 .button-form {
-  margin-top: 10px;
-  min-width: 250px;
+  width: 70%;
   height: 14%;
   font-family: 'Montserrat Variable';
   font-weight: 400;
@@ -162,6 +164,7 @@ const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
   border-radius: 14px;
   user-select: none;
   padding: 12px 24px;
+  margin-top: 12px;
   background-color: #e52e2a;
   color: white;
   transition: 0.3s;
@@ -177,22 +180,46 @@ const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
 .button-form:active {
   background-color: #7f1a17;
 }
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .text-by-form {
     font-size: 20px;
     width: 60%;
-  }
-  .form-block-container {
-    flex-direction: column;
+    padding-bottom: 0px;
   }
   .form-container {
     padding-left: 20px;
+    padding-top: 0px;
+  }
+  .text-input-container {
+    width: 60%;
+  }
+  .smart-captcha {
+    width: 60%;
+    height: 12%;
+    max-height: 100px;
+  }
+  .button-form {
+    width: 60%;
+  }
+  .result-form {
+    width: 60%;
+  }
+}
+@media (max-width: 768px) {
+  .text-input-container {
+    height: 12%;
+  }
+  .comment-input {
+    height: 19%;
+  }
+  .result-form {
+    font-size: 14px;
   }
 }
 @media (max-width: 500px) {
   .text-by-form {
     font-size: 16px;
-    width: 100%;
+    width: 60%;
   }
 }
 </style>
