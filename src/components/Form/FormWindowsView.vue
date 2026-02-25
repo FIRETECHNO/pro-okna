@@ -48,7 +48,7 @@ const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
         <p class="text-by-form">Оставьте заявку — мы перезвоним в течение 15 минут</p>
       </v-col>
       <v-col cols="12" md="4" class="form-container">
-        <v-form @submit="onSubmitRequest">
+        <v-form @submit="onSubmitRequest" class="form-windows">
           <input
             class="text-input-container"
             type="login"
@@ -118,6 +118,7 @@ const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  flex-wrap: wrap;
   align-content: space-between;
 }
 .text-input-container {
@@ -128,7 +129,7 @@ const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
   font-size: clamp(12px, 1.5vw, 3vw);
   margin-top: 10px;
   padding-left: 20px;
-  width: 70%;
+  width: 100%;
   height: 15%;
 }
 
@@ -143,7 +144,7 @@ const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
   border-radius: 15px;
   margin-top: 12px;
   min-width: 100px;
-  width: 70%;
+  width: 100%;
   height: 22%;
 }
 .result-form {
@@ -152,11 +153,11 @@ const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
   line-height: 100%;
   color: white;
   text-align: center;
-  width: 70%;
+  width: 100%;
   margin-top: 4px;
 }
 .button-form {
-  width: 70%;
+  width: 100%;
   height: 14%;
   font-family: 'Montserrat Variable';
   font-weight: 400;
@@ -187,25 +188,23 @@ const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
     padding-bottom: 0px;
   }
   .form-container {
-    padding-left: 20px;
+    padding-right: 20px;
     padding-top: 0px;
+    align-content: flex-end;
   }
-  .text-input-container {
-    width: 60%;
+  .form-windows {
+    width: 40%;
+    padding-right: 20px;
   }
   .smart-captcha {
-    width: 60%;
     height: 12%;
     max-height: 100px;
   }
-  .button-form {
-    width: 60%;
-  }
-  .result-form {
-    width: 60%;
-  }
 }
 @media (max-width: 768px) {
+  .form-windows {
+    width: 45%;
+  }
   .text-input-container {
     height: 12%;
   }
@@ -216,9 +215,13 @@ const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
     font-size: 14px;
   }
 }
+@media (max-width: 600px) {
+  .form-windows {
+    width: 50%;
+  }
+}
 @media (max-width: 500px) {
-  .text-by-form {
-    font-size: 16px;
+  .form-windows {
     width: 60%;
   }
 }

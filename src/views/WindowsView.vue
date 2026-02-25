@@ -56,7 +56,7 @@ const images = import.meta.glob('/public/images/our-products/*.{png,jpg,jpeg,svg
 })
 const imageList = []
 for (let img in images) {
-  imageList.push(img)
+  imageList.push(img.replace('/public', ''))
 }
 </script>
 <template>

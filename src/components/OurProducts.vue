@@ -70,6 +70,7 @@ const imageList = props.urlImages
   border-radius: 35px;
   background-position: center;
   user-select: none;
+  object-fit: cover;
 }
 .button-our-products {
   margin-top: 20px;
