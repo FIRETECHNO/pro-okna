@@ -3,6 +3,7 @@ import BlockImage from '@/components/BlockImage.vue'
 import Advantage from '@/components/Advantage.vue'
 import CardService from '@/components/CardService.vue'
 import FormWindowsView from '@/components/Form/FormWindowsView.vue'
+import OurProducts from '@/components/OurProducts.vue'
 
 const advantages = [
   {
@@ -49,6 +50,14 @@ const services = [
     variantsService: '',
   },
 ]
+
+const images = import.meta.glob('/public/images/our-products/*.{png,jpg,jpeg,svg}', {
+  eager: true,
+})
+const imageList = []
+for (let img in images) {
+  imageList.push(img)
+}
 </script>
 <template>
   <v-container class="block-image">
@@ -88,6 +97,7 @@ const services = [
     </v-row>
   </v-container>
   <FormWindowsView></FormWindowsView>
+  <OurProducts :url-images="imageList"></OurProducts>
 </template>
 <style scoped>
 .block-image {
@@ -118,12 +128,14 @@ const services = [
   line-height: 150%;
   text-transform: uppercase;
   text-align: center;
+  margin: 20px;
 }
 
 .block-services {
   display: flex;
   justify-content: space-between;
   overflow-x: auto;
+  margin-bottom: 100px;
 }
 .card-service {
   display: flex;

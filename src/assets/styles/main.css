@@ -1,2 +1,4 @@
 @import 'tailwindcss';
 @import '@fontsource-variable/montserrat';
+@import 'swiper/css';
+@import 'swiper/css/navigation';
