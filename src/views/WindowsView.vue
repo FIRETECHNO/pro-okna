@@ -4,6 +4,7 @@ import Advantage from '@/components/Advantage.vue'
 import CardService from '@/components/CardService.vue'
 import FormWindowsView from '@/components/Form/FormWindowsView.vue'
 import OurProducts from '@/components/OurProducts.vue'
+import SignUpConsultation from '@/components/SignUpConsultation.vue'
 
 const advantages = [
   {
@@ -98,6 +99,7 @@ for (let img in images) {
   </v-container>
   <FormWindowsView></FormWindowsView>
   <OurProducts :url-images="imageList"></OurProducts>
+  <SignUpConsultation></SignUpConsultation>
 </template>
 <style scoped>
 .block-image {
