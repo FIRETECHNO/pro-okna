@@ -51,12 +51,12 @@ const services = [
   },
 ]
 
-const images = import.meta.glob('/public/images/our-products/*.{png,jpg,jpeg,svg}', {
+const images = import.meta.glob('/src/assets/images/our-products/*.{png,jpg,jpeg,svg}', {
   eager: true,
 })
 const imageList = []
 for (let img in images) {
-  imageList.push(img.replace('/public', ''))
+  imageList.push(img)
 }
 </script>
 <template>
