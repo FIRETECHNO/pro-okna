@@ -99,7 +99,13 @@ for (let img in images) {
   </v-container>
   <FormWindowsView></FormWindowsView>
   <OurProducts :url-images="imageList"></OurProducts>
-  <SignUpConsultation></SignUpConsultation>
+  <v-container>
+    <v-row style="width: 100%; display: flex; justify-content: center">
+      <v-col cols="12" md="10" lg="8" style="padding: 0">
+        <SignUpConsultation></SignUpConsultation>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 <style scoped>
 .block-image {
