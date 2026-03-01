@@ -46,6 +46,11 @@ img {
   padding: 0px 100px 30px 60px;
   clip-path: polygon(0% 0%, 60% 0%, 100% 50%, 60% 100%, 0% 100%);
 }
+@media (max-width: 1125px) {
+  .textBlock {
+    font-size: 60px;
+  }
+}
 @media (max-width: 880px) {
   .textBlock {
     font-size: 46px;

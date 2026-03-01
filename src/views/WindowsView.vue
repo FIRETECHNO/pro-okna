@@ -31,28 +31,28 @@ const advantages = [
 
 const services = [
   {
-    imageUrl: '/images/services/CustomWindows.png',
+    imageUrl: '/images/views/services/CustomWindows.jpg',
     textButton: 'Окна на заказ',
     variantsService: 'без монтажа',
   },
   {
-    imageUrl: '/images/services/InstallationWindows.png',
+    imageUrl: '/images/views/services/InstallationWindows.jpg',
     textButton: 'Окна с монтажем',
     variantsService: 'под ключ',
   },
   {
-    imageUrl: '/images/services/Glazing.png',
+    imageUrl: '/images/views/services/Glazing.jpg',
     textButton: 'Остекление',
     variantsService: 'веранды, беседки, терассы',
   },
   {
-    imageUrl: '/images/services/CountryWindows.png',
+    imageUrl: '/images/views/services/CountryWindows.jpg',
     textButton: 'Дачные окна',
     variantsService: '',
   },
 ]
 
-const images = import.meta.glob('/src/assets/images/our-products/*.{png,jpg,jpeg,svg}', {
+const images = import.meta.glob('/src/assets/images/views/our-products/*.{png,jpg,jpeg,svg}', {
   eager: true,
 })
 const imageList = []
@@ -62,7 +62,7 @@ for (let img in images) {
 </script>
 <template>
   <v-container class="block-image">
-    <BlockImage image-url="/images/ViewsBlockImage.jpg">
+    <BlockImage image-url="/images/views/ViewsBlockImage.jpg">
       <template #mainText>
         окна<br />
         со скидкой до
