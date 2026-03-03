@@ -36,7 +36,7 @@ const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
 </script>
 <template>
   <v-container class="consultation-container">
-    <v-row>
+    <v-row style="margin: 0px">
       <v-col cols="12" class="consultation-text-form-container">
         <p>Записаться на консультацию</p>
       </v-col>
@@ -73,7 +73,7 @@ const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
   margin-top: 100px;
   border-radius: 16px;
   background-color: rgba(217, 217, 217, 1);
-  padding: 12px;
+  padding: 0px;
 }
 .consultation-text-form-container {
   background-color: rgba(55, 55, 55, 1);

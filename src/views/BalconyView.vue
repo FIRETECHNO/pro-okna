@@ -99,9 +99,9 @@ for (let img in images) {
   </v-container>
   <FormWindowsView></FormWindowsView>
   <OurProducts :url-images="imageList"></OurProducts>
-  <v-container>
-    <v-row style="width: 100%; display: flex; justify-content: center">
-      <v-col cols="12" md="10" lg="8" style="padding: 0">
+  <v-container style="padding: 0">
+    <v-row style="width: 100%; display: flex; justify-content: center; margin: 0px">
+      <v-col cols="12" md="10" lg="8" style="padding: 0; width: 100%">
         <SignUpConsultation></SignUpConsultation>
       </v-col>
     </v-row>
