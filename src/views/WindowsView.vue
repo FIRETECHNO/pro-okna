@@ -61,51 +61,45 @@ for (let img in images) {
 }
 </script>
 <template>
-  <v-container class="block-image">
-    <BlockImage image-url="/images/views/ViewsBlockImage.jpg">
-      <template #mainText>
-        окна<br />
-        со скидкой до
-      </template>
-      <template #discount>
-        <p style="color: #e52e2a">-40%</p>
-      </template>
-    </BlockImage>
-  </v-container>
-  <p class="header-advantages">работаем <span style="color: #e52e2a">C 2004 года</span></p>
-  <v-container class="block-advantages">
-    <Advantage
-      v-for="advantage in advantages"
-      :key="advantage.name"
-      :icon="advantage.icon"
-      :name="advantage.name"
-      :text="advantage.text"
-    >
-    </Advantage>
-  </v-container>
-  <p class="header-services">наши услуги</p>
-  <v-container class="block-services">
-    <v-row style="flex-wrap: nowrap">
-      <v-col cols="12" sm="12" md="3" lg="3" v-for="service in services" class="card-service">
-        <CardService
-          :key="service.imageUrl"
-          :image-url="service.imageUrl"
-          :text-button="service.textButton"
-          :variants-service="service.variantsService"
-        >
-        </CardService>
-      </v-col>
-    </v-row>
-  </v-container>
-  <FormWindowsView></FormWindowsView>
-  <OurProducts :url-images="imageList"></OurProducts>
-  <v-container style="padding: 0px">
-    <v-row style="width: 100%; display: flex; justify-content: center; margin: 0px">
-      <v-col cols="12" md="10" lg="8" style="padding: 0">
-        <SignUpConsultation></SignUpConsultation>
-      </v-col>
-    </v-row>
-  </v-container>
+  <div>
+
+    <v-container class="block-image">
+      <BlockImage image-url="/images/views/ViewsBlockImage.jpg">
+        <template #mainText>
+          окна<br />
+          со скидкой до
+        </template>
+        <template #discount>
+          <p style="color: #e52e2a">-40%</p>
+        </template>
+      </BlockImage>
+    </v-container>
+    <p class="header-advantages">работаем <span style="color: #e52e2a">C 2004 года</span></p>
+    <v-container class="block-advantages">
+      <Advantage v-for="advantage in advantages" :key="advantage.name" :icon="advantage.icon" :name="advantage.name"
+        :text="advantage.text">
+      </Advantage>
+    </v-container>
+    <p class="header-services">наши услуги</p>
+    <v-container class="block-services">
+      <v-row style="flex-wrap: nowrap">
+        <v-col cols="12" sm="12" md="3" lg="3" v-for="service in services" class="card-service">
+          <CardService :key="service.imageUrl" :image-url="service.imageUrl" :text-button="service.textButton"
+            :variants-service="service.variantsService">
+          </CardService>
+        </v-col>
+      </v-row>
+    </v-container>
+    <FormWindowsView></FormWindowsView>
+    <OurProducts :url-images="imageList"></OurProducts>
+    <v-container style="padding: 0px">
+      <v-row style="width: 100%; display: flex; justify-content: center; margin: 0px">
+        <v-col cols="12" md="10" lg="8" style="padding: 0">
+          <SignUpConsultation></SignUpConsultation>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 <style scoped>
 .block-image {
@@ -145,12 +139,14 @@ for (let img in images) {
   overflow-x: auto;
   margin-bottom: 100px;
 }
+
 .card-service {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 20%;
 }
+
 @media (max-width: 767px) {
   .block-advantages {
     flex-direction: column;
@@ -162,6 +158,7 @@ for (let img in images) {
   .header-advantages {
     font-size: 20px;
   }
+
   .header-services {
     font-size: 16px;
   }

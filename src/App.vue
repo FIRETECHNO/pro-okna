@@ -1,5 +1,27 @@
 <script setup lang="ts">
 import MyAccentButton from './components/MyAccentButton.vue'
+import { ref, watch } from "vue"
+import { useRoute, useRouter } from 'vue-router';
+
+const route = useRoute()
+const router = useRouter()
+
+let navBtns = ref([
+  { name: 'Окна', url: '/', isActive: false, },
+  { name: 'Балконы', url: '/balcony', isActive: false, },
+  { name: 'Натяжные потолки', url: '/', isActive: false, },
+  { name: 'Ремонт окон', url: '/windows-repair', isActive: false, }
+])
+
+watch(
+  () => route.path,
+  (newPath) => {
+    navBtns.value.forEach(btn => {
+      btn.isActive = (btn.url === newPath)
+    })
+  },
+  { immediate: true }   // ← важно! чтобы сработало при монтировании
+)
 </script>
 
 <template>
@@ -26,27 +48,52 @@ import MyAccentButton from './components/MyAccentButton.vue'
 
               <MyAccentButton>Вызвать мастера на замер</MyAccentButton>
             </v-col>
+            <v-divider></v-divider>
           </v-row>
-          <v-divider></v-divider>
-          <v-row class="flex flex-between">
-            <v-col cols="3" class="flex justify-center"> Окна </v-col>
-            <v-col cols="3" class="flex justify-center">Балконы</v-col>
-            <v-col cols="3" class="flex justify-center">Натяжные потолки</v-col>
-            <v-col cols="3" class="flex justify-center">Ремонт окон</v-col>
+
+          <v-row class="flex flex-between" style="display: flex; justify-content: space-between;">
+            <v-col cols="auto" class="flex justify-center" v-for="(btn, index) of navBtns">
+              <button @click="router.push(btn.url)" class="nav-btn" :class="btn.isActive ? 'nav-btn-active' : ''">{{
+                btn.name }}</button>
+            </v-col>
           </v-row>
         </v-container>
       </v-app-bar>
 
-      <v-main style="margin-top: 127px">
-        <v-container
-          class="container"
-          style="max-width: 100% !important; height: 100%; margin: 0; padding: 16px 0px"
-        >
-          <router-view />
+      <v-main style="margin-top: 174px">
+        <v-container class="container" style="max-width: 100% !important; height: 100%; margin: 0; padding: 0 0 16px 0">
+          <RouterView v-slot="{ Component }">
+            <Transition name="fade" mode="out-in">
+              <component :is="Component" />
+            </Transition>
+          </RouterView>
         </v-container>
       </v-main>
     </v-app>
   </v-responsive>
 </template>
 
-<style scoped></style>
+<style>
+.nav-btn {
+  padding: 10px 25px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 18px;
+  border-radius: 6px;
+}
+
+.nav-btn-active {
+  background-color: #373737;
+  color: white;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
