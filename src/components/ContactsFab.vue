@@ -32,7 +32,7 @@ onUnmounted(() => {
 
 <template>
   <div class="floating-contact">
-    <a :href="currentIndex === 0 ? 'tel:+78001234567' : 'https://t.me/stekloservis59'" target="_blank"
+    <a :href="currentIndex === 0 ? 'tel:+7(950)473-91-17' : 'https://t.me/stekloservis59'" target="_blank"
       rel="noopener noreferrer" class="icon-link" :class="{ fading: isFading }"
       :style="{ backgroundImage: `url(${images[currentIndex]})` }" aria-label="Связаться с нами"></a>
   </div>
