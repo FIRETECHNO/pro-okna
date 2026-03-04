@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import BlockImageForWindowsRepairLg from '@/components/BlockImageForWindowsRepairLg.vue'
 import BlockImageForWindowsRepairOther from '@/components/BlockImageForWindowsRepairOther.vue'
 </script>
