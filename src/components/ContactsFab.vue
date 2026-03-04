@@ -2,8 +2,8 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const images = [
-  '/src/assets/images/phone-icon.svg',
-  '/src/assets/images/telegram-icon.svg'
+  'icons/phone-icon.svg',
+  'icons/telegram-icon.svg'
 ]
 
 const currentIndex = ref(0)
