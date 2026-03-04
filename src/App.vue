@@ -37,7 +37,9 @@ watch(
         <v-container v-if="mdAndUp">
           <v-row class="flex justify-between">
             <v-col class="flex justify-start" cols="auto">
-              <img src="/icons/logo-old-variant.png" style="height: 70px" :draggable="false" />
+              <a href="/">
+                <img src="/icons/logo-old-variant.png" style="height: 70px" :draggable="false" />
+              </a>
               <div class="flex flex-col justify-center">
                 <a href="tel:+7(950)473-91-17" class="underline"> Заказать звонок </a>
                 <a href="tel:+7(950)473-91-17" class="font-bold no-underline">
@@ -47,12 +49,15 @@ watch(
               </div>
             </v-col>
             <v-col class="flex flex-row items-center justify-end" cols="auto">
-              <div class="mr-10">
-                <v-icon color="primary" size="20">mdi-map-marker</v-icon>
-                ул. Стахановская, 43
-              </div>
-
-              <MyAccentButton>Вызвать мастера на замер</MyAccentButton>
+              <a href="https://yandex.ru/maps/-/CPq3QR25" target="_blank">
+                <div class="mr-10">
+                  <v-icon color="primary" size="20">mdi-map-marker</v-icon>
+                  ул. Стахановская, 43
+                </div>
+              </a>
+              <a href="tel:+7(950)473-91-17">
+                <MyAccentButton>Вызвать мастера на замер</MyAccentButton>
+              </a>
             </v-col>
             <v-divider></v-divider>
           </v-row>
@@ -67,7 +72,9 @@ watch(
         <v-container v-else>
           <v-row class="flex justify-between">
             <v-col cols="auto">
-              <img src="/icons/logo-old-variant.png" style="height: 70px" :draggable="false" />
+              <a href="/">
+                <img src="/icons/logo-old-variant.png" style="height: 70px" :draggable="false" />
+              </a>
             </v-col>
             <v-col cols="auto" style="display: flex; align-items: center;">
               <v-icon class="menu-icon" @click="navigationDrawer = !navigationDrawer">mdi-menu</v-icon>
