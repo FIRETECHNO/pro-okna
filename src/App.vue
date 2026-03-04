@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import MyAccentButton from './components/MyAccentButton.vue'
-import { ref, watch } from "vue"
+import { ref, watch, computed } from "vue"
 import { useRoute, useRouter } from 'vue-router';
+import { useDisplay } from 'vuetify'
 
 const route = useRoute()
 const router = useRouter()
+const display = useDisplay()
+
+let mdAndUp = computed(() => display.mdAndUp.value)
 
 let navBtns = ref([
   { name: 'Окна', url: '/', isActive: false, },
@@ -12,6 +16,8 @@ let navBtns = ref([
   { name: 'Натяжные потолки', url: '/', isActive: false, },
   { name: 'Ремонт окон', url: '/windows-repair', isActive: false, }
 ])
+
+let navigationDrawer = ref(false)
 
 watch(
   () => route.path,
@@ -28,7 +34,7 @@ watch(
   <v-responsive>
     <v-app>
       <v-app-bar flat height="prominent">
-        <v-container>
+        <v-container v-if="mdAndUp">
           <v-row class="flex justify-between">
             <v-col class="flex justify-start" cols="auto">
               <img src="/icons/logo-old-variant.png" style="height: 70px" :draggable="false" />
@@ -51,16 +57,53 @@ watch(
             <v-divider></v-divider>
           </v-row>
 
-          <v-row class="flex flex-between" style="display: flex; justify-content: space-between;">
+          <v-row class="flex justify-between">
             <v-col cols="auto" class="flex justify-center" v-for="(btn, index) of navBtns">
               <button @click="router.push(btn.url)" class="nav-btn" :class="btn.isActive ? 'nav-btn-active' : ''">{{
                 btn.name }}</button>
             </v-col>
           </v-row>
         </v-container>
+        <v-container v-else>
+          <v-row class="flex justify-between">
+            <v-col cols="auto">
+              <img src="/icons/logo-old-variant.png" style="height: 70px" :draggable="false" />
+            </v-col>
+            <v-col cols="auto" style="display: flex; align-items: center;">
+              <v-icon class="menu-icon" @click="navigationDrawer = !navigationDrawer">mdi-menu</v-icon>
+            </v-col>
+          </v-row>
+        </v-container>
       </v-app-bar>
+      <v-navigation-drawer v-if="!mdAndUp" v-model="navigationDrawer" :width="display.width.value ?? '300px'"
+        style="padding-top: 102px;">
+        <div class="flex flex-col justify-between" style="height: 100%;">
 
-      <v-main style="margin-top: 174px">
+          <v-row class="flex justify-center">
+            <v-col class="flex justify-center" cols="12" v-for="(btn, index) of navBtns">
+              <button @click="router.push(btn.url)" class="nav-btn" :class="btn.isActive ? 'nav-btn-active' : ''">{{
+                btn.name }}</button>
+            </v-col>
+          </v-row>
+          <v-row class="flex justify-center">
+            <v-col class="flex justify-center" cols="12">
+              <div class="flex flex-col justify-center">
+                <MyAccentButton class="mb-5">Вызвать мастера на замер</MyAccentButton>
+                <a href="tel:+7(950)473-91-17" class="underline"> Заказать звонок </a>
+                <a href="tel:+7(950)473-91-17" class="font-bold no-underline">
+                  <v-icon size="20">mdi-phone</v-icon>
+                  +7 (950) 473-91-17
+                </a>
+                <div class="mr-10">
+                  <v-icon color="primary" size="20">mdi-map-marker</v-icon>
+                  ул. Стахановская, 43
+                </div>
+              </div>
+            </v-col>
+          </v-row>
+        </div>
+      </v-navigation-drawer>
+      <v-main :style="mdAndUp ? 'margin-top: 174px' : ''">
         <v-container class="container" style="max-width: 100% !important; height: 100%; margin: 0; padding: 0 0 16px 0">
           <RouterView v-slot="{ Component }">
             <Transition name="fade" mode="out-in">
@@ -80,6 +123,7 @@ watch(
   font-weight: 700;
   font-size: 18px;
   border-radius: 6px;
+  height: 50px;
 }
 
 .nav-btn-active {
