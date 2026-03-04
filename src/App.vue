@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import MyAccentButton from './components/MyAccentButton.vue'
+import ContactsFab from "./components/ContactsFab.vue"
 import { ref, watch, computed } from "vue"
 import { useRoute, useRouter } from 'vue-router';
 import { useDisplay } from 'vuetify'
@@ -33,6 +34,7 @@ watch(
 <template>
   <v-responsive>
     <v-app>
+      <ContactsFab />
       <v-app-bar flat height="prominent">
         <v-container v-if="mdAndUp">
           <v-row class="flex justify-between">
