@@ -20,7 +20,7 @@ const advantages = [
   {
     icon: 'mdi-pin-outline',
     name: 'Рассрочка без переплат',
-    text: 'Оформление рассрочки до 12 месяцев.',
+    text: 'До 6 мес без процентов и банка.',
   },
   {
     icon: 'mdi-shield-check-outline',
@@ -55,14 +55,13 @@ const services = [
 const images = import.meta.glob('/src/assets/images/views/our-products/*.{png,jpg,jpeg,svg}', {
   eager: true,
 })
-const imageList = []
+const imageList: any[] = []
 for (let img in images) {
   imageList.push(img)
 }
 </script>
 <template>
   <div>
-
     <v-container class="block-image">
       <BlockImage image-url="/images/views/ViewsBlockImage.jpg">
         <template #mainText>
@@ -70,7 +69,7 @@ for (let img in images) {
           со скидкой до
         </template>
         <template #discount>
-          <p style="color: #e52e2a">-40%</p>
+          <p style="color: #e52e2a">40%</p>
         </template>
       </BlockImage>
     </v-container>
@@ -90,7 +89,9 @@ for (let img in images) {
         </v-col>
       </v-row>
     </v-container>
-    <FormWindowsView></FormWindowsView>
+    <div id="order-form">
+      <FormWindowsView></FormWindowsView>
+    </div>
     <OurProducts :url-images="imageList"></OurProducts>
     <v-container style="padding: 0px">
       <v-row style="width: 100%; display: flex; justify-content: center; margin: 0px">

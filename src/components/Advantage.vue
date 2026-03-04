@@ -23,47 +23,57 @@ let { icon, name, text } = props
   flex-direction: row;
   justify-content: center;
 }
+
 .advantage-icon {
   border-radius: 50px;
   border: solid #e52e2a;
   padding: 23px;
 }
+
 .container-advantage-info {
   padding-top: 5px;
-  padding-left: 5px;
+  padding-left: 15px;
   overflow-wrap: break-word;
 }
+
 .advantage-name {
   font-size: 24px;
   font-weight: 600;
   font-family: 'Montserrat Variable';
   line-height: 100%;
 }
+
 .advantage-text {
   font-size: 16px;
   font-weight: 400;
   padding-top: 10px;
   font-family: 'Montserrat Variable';
 }
+
 @media (max-width: 768px) {
   .container-advantage {
     justify-content: start;
   }
 }
+
 @media (min-width: 768px) and (max-width: 1100px) {
   .container-advantage-info {
     padding-left: 3px;
   }
+
   .advantage-name {
     font-size: 15px;
   }
+
   .advantage-text {
     font-size: 13px;
   }
+
   .container-advantage {
     padding-top: 0px;
   }
 }
+
 @media (max-width: 767px) {
   .container-advantage {
     padding-top: 0px;
