@@ -53,6 +53,9 @@ import MyAccentButton from './MyAccentButton.vue'
   background-position: center;
   background-blend-mode: screen;
 }
+.background-image {
+  position: relative;
+}
 .all-text-block-image {
   padding-left: 10vw;
   padding-top: 9vh;
@@ -89,11 +92,11 @@ import MyAccentButton from './MyAccentButton.vue'
 }
 .content-corner-block-image {
   transform: scaleX(-1);
-  height: 40%;
+  height: 90%;
   width: 30%;
   position: absolute;
   left: 70vw;
-  top: 40vh;
+  top: 4vh;
   min-height: 300px;
   min-width: 200px;
 }
@@ -113,10 +116,10 @@ import MyAccentButton from './MyAccentButton.vue'
     padding: 10px 38px;
   }
   .content-corner-block-image {
-    top: 25vh;
-    left: 65vw;
-    height: 45%;
-    width: 35%;
+    top: 10vh;
+    left: 55vw;
+    height: 80%;
+    width: 50%;
   }
   .container-accent-button {
     display: flex;
@@ -133,10 +136,10 @@ import MyAccentButton from './MyAccentButton.vue'
     width: 70vw;
   }
   .content-corner-block-image {
-    top: 30vh;
-    left: 35vw;
-    width: 70%;
-    height: 50%;
+    top: 20vh;
+    left: 50vw;
+    width: 50%;
+    height: 60%;
   }
   .container-accent-button {
     margin-top: 28vh;
@@ -168,19 +171,22 @@ import MyAccentButton from './MyAccentButton.vue'
     padding-top: 20px;
   }
   .content-corner-block-image {
-    height: 35%;
+    height: 50%;
     width: 68%;
-    top: 37vh;
-    left: 38vw;
+    top: 17vh;
+    left: 39vw;
   }
   .container-accent-button {
-    margin-top: 20vh;
+    margin-top: 25vh;
   }
   .accent-button {
     font-size: 14px;
   }
 }
 @media (max-width: 400px) {
+  .container-block-image {
+    height: 70vh;
+  }
   .text-above {
     font-size: 12px;
     padding: 7px 30px;
@@ -194,9 +200,9 @@ import MyAccentButton from './MyAccentButton.vue'
   }
   .content-corner-block-image {
     height: 27%;
-    width: 55%;
-    left: 41vw;
-    top: 38vh;
+    width: 50%;
+    left: 49vw;
+    top: 25vh;
   }
   .container-accent-button {
     margin-top: 15vh;
