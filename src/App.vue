@@ -2,34 +2,70 @@
 import MyAccentButton from './components/MyAccentButton.vue'
 import ContactsFab from "./components/ContactsFab.vue"
 import Footer from './components/Footer.vue';
-import { ref, watch, computed } from "vue"
+import { ref, computed, watch } from "vue"
 import { useRoute, useRouter } from 'vue-router';
 import { useDisplay } from 'vuetify'
+import { useHead } from '@vueuse/head'
 
 const route = useRoute()
 const router = useRouter()
 const display = useDisplay()
 
+// Адаптив
 let mdAndUp = computed(() => display.mdAndUp.value)
 
+// Навигация + SEO данные
 let navBtns = ref([
-  { name: 'Окна', url: '/', isActive: false, },
-  { name: 'Балконы', url: '/balcony', isActive: false, },
-  // { name: 'Натяжные потолки', url: '/', isActive: false, },
-  { name: 'Ремонт окон', url: '/windows-repair', isActive: false, }
+  {
+    name: 'Окна',
+    url: '/',
+    isActive: false,
+    title: 'Продажа окон в вашем городе',
+    description: 'Качественные окна по лучшей цене'
+  },
+  {
+    name: 'Балконы',
+    url: '/balcony',
+    isActive: false,
+    title: 'Балконы на заказ',
+    description: 'Остекление и ремонт балконов'
+  },
+  {
+    name: 'Ремонт окон',
+    url: '/windows-repair',
+    isActive: false,
+    title: 'Ремонт окон',
+    description: 'Профессиональный ремонт окон быстро и качественно'
+  }
 ])
 
 let navigationDrawer = ref(false)
 
-watch(
-  () => route.path,
-  (newPath) => {
-    navBtns.value.forEach(btn => {
-      btn.isActive = (btn.url === newPath)
-    })
-  },
-  { immediate: true }   // ← важно! чтобы сработало при монтировании
-)
+// Активная страница
+const activePage = computed(() => navBtns.value.find(btn => btn.url === route.path))
+
+// SEO через computed
+useHead(computed(() => ({
+  title: activePage.value?.title || 'Pro-Okna159',
+  meta: [
+    { name: 'description', content: activePage.value?.description || 'Лучшие окна и балконы в вашем городе' },
+    { name: 'robots', content: 'index, follow' }
+  ],
+  link: [
+    { rel: 'canonical', href: `https://pro-okna159.ru${route.path}` } // замени на свой домен
+  ]
+})))
+
+// Подсветка активной кнопки навигации
+const updateActiveBtns = () => {
+  navBtns.value.forEach(btn => {
+    btn.isActive = (btn.url === route.path)
+  })
+}
+
+// Вызываем сразу и при каждой смене маршрута
+updateActiveBtns()
+watch(() => route.path, updateActiveBtns)
 </script>
 
 <template>
