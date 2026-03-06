@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import MyAccentButton from './components/MyAccentButton.vue'
 import ContactsFab from "./components/ContactsFab.vue"
+import Footer from './components/Footer.vue';
 import { ref, watch, computed } from "vue"
 import { useRoute, useRouter } from 'vue-router';
 import { useDisplay } from 'vuetify'
@@ -14,7 +15,7 @@ let mdAndUp = computed(() => display.mdAndUp.value)
 let navBtns = ref([
   { name: 'Окна', url: '/', isActive: false, },
   { name: 'Балконы', url: '/balcony', isActive: false, },
-  { name: 'Натяжные потолки', url: '/', isActive: false, },
+  // { name: 'Натяжные потолки', url: '/', isActive: false, },
   { name: 'Ремонт окон', url: '/windows-repair', isActive: false, }
 ])
 
@@ -40,7 +41,7 @@ watch(
           <v-row class="flex justify-between">
             <v-col class="flex justify-start" cols="auto">
               <a href="/">
-                <img src="/icons/logo-old-variant.png" style="height: 70px" :draggable="false" />
+                <img src="/icons/logo-old-variant.png" style="height: 50px" :draggable="false" />
               </a>
               <div class="flex flex-col justify-center">
                 <a href="tel:+7(950)473-91-17" class="underline"> Заказать звонок </a>
@@ -75,10 +76,10 @@ watch(
           <v-row class="flex justify-between">
             <v-col cols="auto">
               <a href="/">
-                <img src="/icons/logo-old-variant.png" style="height: 70px" :draggable="false" />
+                <img src="/icons/logo-old-variant.png" style="height: 50px" :draggable="false" />
               </a>
             </v-col>
-            <v-col cols="auto" style="display: flex; align-items: center;">
+            <v-col cols="auto" style="display: flex; align-items: center; font-size: 24px;">
               <v-icon class="menu-icon" @click="navigationDrawer = !navigationDrawer">mdi-menu</v-icon>
             </v-col>
           </v-row>
@@ -121,6 +122,8 @@ watch(
           </RouterView>
         </v-container>
       </v-main>
+
+      <Footer />
     </v-app>
   </v-responsive>
 </template>
