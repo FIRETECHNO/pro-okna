@@ -52,13 +52,11 @@ const services = [
   },
 ]
 
-const images = import.meta.glob('/src/assets/images/views/our-products/*.{png,jpg,jpeg,svg}', {
-  eager: true,
-})
-const imageList: any[] = []
-for (let img in images) {
-  imageList.push(img)
-}
+const images = [
+  "/images/views/our-products/1.webp",
+  "/images/views/our-products/2.jpg",
+  "/images/views/our-products/3.jpg",
+]
 </script>
 <template>
   <div>
@@ -92,7 +90,7 @@ for (let img in images) {
     <div id="order-form">
       <FormWindowsView></FormWindowsView>
     </div>
-    <OurProducts :url-images="imageList"></OurProducts>
+    <OurProducts :url-images="images"></OurProducts>
     <v-container style="padding: 0px">
       <v-row style="width: 100%; display: flex; justify-content: center; margin: 0px">
         <v-col cols="12" md="10" lg="8" style="padding: 0">

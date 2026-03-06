@@ -85,8 +85,8 @@ watch(
           </v-row>
         </v-container>
       </v-app-bar>
-      <v-navigation-drawer v-if="!mdAndUp" v-model="navigationDrawer" :width="display.width.value ?? '300px'"
-        style="padding-top: 102px;">
+      <v-navigation-drawer v-if="!mdAndUp" v-model="navigationDrawer" location="right"
+        :width="display.width.value ?? '300px'" style="padding-top: 102px;">
         <div class="flex flex-col justify-between" style="height: 100%;">
 
           <v-row class="flex justify-center">

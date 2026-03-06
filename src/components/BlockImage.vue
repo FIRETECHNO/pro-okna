@@ -36,7 +36,8 @@ img {
 
 .textBlock {
   color: white;
-  font-size: clamp(1.875rem, -0.6108rem + 7.1023vw, 5rem);
+  /* font-size: clamp(1.875rem, -0.6108rem + 7.1023vw, 5rem); */
+  font-size: clamp(2.5rem, 0.5114rem + 5.6818vw, 5rem);
   line-height: 1.05;
   /* font-size: 80px;
   line-height: 90px; */

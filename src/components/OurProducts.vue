@@ -52,9 +52,10 @@ const imageList = props.urlImages
 :deep(.swiper-button-next) {
   color: black;
   /* делаем стрелки синими */
-  width: 60px;
-  height: 60px;
-  padding: 7px 3px 7px 3px;
+  width: clamp(2.5rem, 1.5057rem + 2.8409vw, 3.75rem) !important;
+  /* 40 -> 60*/
+  height: clamp(2.5rem, 1.5057rem + 2.8409vw, 3.75rem) !important;
+  padding: 10px 5px 10px 5px;
   background: rgba(217, 217, 217, 0.7);
   border-radius: 50%;
 }

@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import { computed } from "vue"
+import { useDisplay } from 'vuetify'
+
+const { mdAndUp } = useDisplay()
+
+let isMdAndUp = computed(() => mdAndUp.value)
 const props = defineProps<{
   icon: string
   name: string
@@ -10,7 +16,7 @@ let { icon, name, text } = props
 
 <template>
   <v-container class="container-advantage">
-    <v-icon class="advantage-icon" color="primary" size="40">{{ icon }}</v-icon>
+    <v-icon class="advantage-icon" color="primary" :size="isMdAndUp ? 40 : 30">{{ icon }}</v-icon>
     <div class="container-advantage-info">
       <h1 class="advantage-name">{{ name }}</h1>
       <p class="advantage-text">{{ text }}</p>
@@ -20,14 +26,14 @@ let { icon, name, text } = props
 <style scoped>
 .container-advantage {
   display: flex;
-  flex-direction: row;
   justify-content: center;
 }
 
 .advantage-icon {
-  border-radius: 50px;
-  border: solid #e52e2a;
+  border-radius: 100px;
+  border: solid #e52e2a 2px;
   padding: 23px;
+  margin-right: 10px;
 }
 
 .container-advantage-info {
@@ -62,7 +68,7 @@ let { icon, name, text } = props
   }
 
   .advantage-name {
-    font-size: 15px;
+    font-size: 16px;
   }
 
   .advantage-text {
@@ -77,6 +83,18 @@ let { icon, name, text } = props
 @media (max-width: 767px) {
   .container-advantage {
     padding-top: 0px;
+  }
+
+  .advantage-name {
+    font-size: 14px;
+  }
+
+  .advantage-text {
+    font-size: 12px;
+  }
+
+  .advantage-icon {
+    padding: 18px;
   }
 }
 </style>
