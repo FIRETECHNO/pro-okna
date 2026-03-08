@@ -34,33 +34,36 @@ const services = [
     imageUrl: '/images/balcony/services/GlazingBalconies.png',
     textButton: 'Остекление балконов',
     variantsService: '',
+    url: '/glazing-balconies',
   },
   {
     imageUrl: '/images/balcony/services/InsulationBalconies.png',
     textButton: 'Утепление балконов',
     variantsService: '',
+    url: '/insulation-balconies',
   },
   {
     imageUrl: '/images/balcony/services/InteriorDecoration.png',
     textButton: 'Внутренняя отделка',
     variantsService: 'для балконов и лоджий',
+    url: '/interior-decoration',
   },
   {
     imageUrl: '/images/balcony/services/AdditionalProducts.png',
     textButton: 'Сопутствующие товары',
     variantsService: '',
+    url: '/additional-products',
   },
 ]
 
 const images = [
-  "/images/balcony/our-products/1.png",
-  "/images/balcony/our-products/2.png",
-  "/images/balcony/our-products/3.png",
+  '/images/balcony/our-products/1.png',
+  '/images/balcony/our-products/2.png',
+  '/images/balcony/our-products/3.png',
 ]
 </script>
 <template>
   <div>
-
     <v-container class="block-image">
       <BlockImage image-url="/images/balcony/BalconyBlockImage.png">
         <template #mainText>
@@ -74,16 +77,26 @@ const images = [
     </v-container>
     <p class="header-advantages">работаем <span style="color: #e52e2a">C 2004 года</span></p>
     <v-container class="block-advantages">
-      <Advantage v-for="advantage in advantages" :key="advantage.name" :icon="advantage.icon" :name="advantage.name"
-        :text="advantage.text">
+      <Advantage
+        v-for="advantage in advantages"
+        :key="advantage.name"
+        :icon="advantage.icon"
+        :name="advantage.name"
+        :text="advantage.text"
+      >
       </Advantage>
     </v-container>
     <p class="header-services">наши услуги</p>
     <v-container class="block-services">
       <v-row style="flex-wrap: nowrap">
         <v-col cols="6" sm="5" md="3" lg="3" v-for="service in services" class="card-service">
-          <CardService :key="service.imageUrl" :image-url="service.imageUrl" :text-button="service.textButton"
-            :variants-service="service.variantsService">
+          <CardService
+            :key="service.imageUrl"
+            :image-url="service.imageUrl"
+            :text-button="service.textButton"
+            :variants-service="service.variantsService"
+            :url="service.url"
+          >
           </CardService>
         </v-col>
       </v-row>
@@ -100,7 +113,6 @@ const images = [
       </v-row>
     </v-container>
   </div>
-
 </template>
 <style scoped>
 .block-image {
