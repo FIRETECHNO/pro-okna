@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import MyAccentButton from './MyAccentButton.vue'
+import { useRoute } from 'vue-router';
+
+let route = useRoute()
 </script>
 <template>
   <v-container class="container-block-image">
@@ -29,13 +32,11 @@ import MyAccentButton from './MyAccentButton.vue'
           </div>
         </div>
 
-        <img
-          src="/images/windows-repair/WindowsCorner.png"
-          alt=""
-          class="content-corner-block-image"
-        />
+        <img src="/images/windows-repair/WindowsCorner.png" alt="" class="content-corner-block-image" />
         <div class="container-accent-button">
-          <MyAccentButton class="accent-button">Вызвать мастера на замер</MyAccentButton>
+          <a :href="route.path + '#order-form'">
+            <MyAccentButton class="accent-button" @click="">Вызвать мастера на замер</MyAccentButton>
+          </a>
         </div>
       </v-col>
     </v-row>
@@ -43,7 +44,7 @@ import MyAccentButton from './MyAccentButton.vue'
 </template>
 <style scoped>
 .container-block-image {
-  height: 60vh;
+  height: 70vh;
   min-width: 100% !important;
   padding: 0px;
   background-image: url('/images/windows-repair/WindowsRepairGeneralBlockImage.jpg');
@@ -53,13 +54,16 @@ import MyAccentButton from './MyAccentButton.vue'
   background-position: center;
   background-blend-mode: screen;
 }
+
 .background-image {
   position: relative;
 }
+
 .all-text-block-image {
   padding-left: 10vw;
   padding-top: 9vh;
 }
+
 .general-text-block-image {
   font-size: 37px;
   font-weight: 700;
@@ -69,6 +73,7 @@ import MyAccentButton from './MyAccentButton.vue'
   text-transform: uppercase;
   width: 50vw;
 }
+
 .text-above {
   background-color: rgba(55, 55, 55, 1);
   font-size: 13px;
@@ -79,17 +84,20 @@ import MyAccentButton from './MyAccentButton.vue'
   text-transform: none;
   border-radius: 6px;
 }
+
 .features {
   display: flex;
   flex-direction: column;
   padding-top: 50px;
 }
+
 .feature {
   font-size: 14px;
   font-family: 'Montserrat Variable';
   font-weight: 400;
   line-height: 70%;
 }
+
 .content-corner-block-image {
   transform: scaleX(-1);
   height: 90%;
@@ -100,61 +108,75 @@ import MyAccentButton from './MyAccentButton.vue'
   min-height: 300px;
   min-width: 200px;
 }
+
 .container-accent-button {
   display: none;
   margin-top: 10vh;
 }
+
 @media (max-width: 960px) {
   .container-block-image {
     height: 90vh;
   }
+
   .general-text-block-image {
     font-size: 30px;
     width: 60vw;
   }
+
   .text-above {
     padding: 10px 38px;
   }
+
   .content-corner-block-image {
     top: 10vh;
     left: 55vw;
     height: 80%;
     width: 50%;
   }
+
   .container-accent-button {
     display: flex;
     justify-content: start;
     margin-left: 10vw;
   }
 }
+
 @media (max-width: 750px) {
   .container-block-image {
     height: 100vh;
   }
+
   .general-text-block-image {
     font-size: 25px;
     width: 70vw;
   }
+
   .content-corner-block-image {
     top: 20vh;
     left: 50vw;
     width: 50%;
     height: 60%;
   }
+
   .container-accent-button {
     margin-top: 28vh;
   }
+
   .accent-button {
     font-size: 17px;
   }
 }
+
 @media (max-width: 600px) {
   .all-text-block-image {
     padding-left: 5vw;
   }
+
   .general-text-block-image {
     font-size: 23px;
   }
+
   .container-accent-button {
     margin-left: 5vw;
   }
@@ -164,46 +186,57 @@ import MyAccentButton from './MyAccentButton.vue'
   .all-text-block-image {
     padding-left: 5vw;
   }
+
   .general-text-block-image {
     width: 75vw;
   }
+
   .features {
     padding-top: 20px;
   }
+
   .content-corner-block-image {
     height: 50%;
     width: 68%;
     top: 17vh;
     left: 39vw;
   }
+
   .container-accent-button {
     margin-top: 25vh;
   }
+
   .accent-button {
     font-size: 14px;
   }
 }
+
 @media (max-width: 400px) {
   .container-block-image {
-    height: 70vh;
+    height: 90vh;
   }
+
   .text-above {
     font-size: 12px;
     padding: 7px 30px;
   }
+
   .general-text-block-image {
     font-size: 19px;
-    width: 80vw;
+    width: 100%;
   }
+
   .feature {
     font-size: 11px;
   }
+
   .content-corner-block-image {
-    height: 27%;
+    /* height: 27%; */
     width: 50%;
     left: 49vw;
     top: 25vh;
   }
+
   .container-accent-button {
     margin-top: 15vh;
   }
