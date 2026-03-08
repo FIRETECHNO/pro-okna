@@ -161,7 +161,8 @@ const onSubmitRequest = handleSubmit(onSuccess, onInvalid)
 }
 
 .consultation-container {
-  margin-top: 100px;
+  margin-top: clamp(3.75rem, 1.7614rem + 5.6818vw, 6.25rem);
+  margin-bottom: clamp(3.75rem, 1.7614rem + 5.6818vw, 6.25rem);
   border-radius: 16px;
   background-color: rgba(217, 217, 217, 1);
   padding: 0px;

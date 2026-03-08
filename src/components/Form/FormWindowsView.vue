@@ -177,6 +177,7 @@ onMounted(() => {
   display: flex;
   justify-content: space-around;
   padding-top: 5vh;
+  padding-bottom: 5vh;
   /* height: 100vh; */
   background-image: url('/images/FormBlock.png');
   background-color: rgba(0, 0, 0, 0.5);
