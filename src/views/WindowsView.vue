@@ -34,21 +34,25 @@ const services = [
     imageUrl: '/images/views/services/CustomWindows.jpg',
     textButton: 'Окна на заказ',
     variantsService: 'без монтажа',
+    url: "/custom-windows"
   },
   {
     imageUrl: '/images/views/services/InstallationWindows.jpg',
     textButton: 'Окна с монтажем',
     variantsService: 'под ключ',
+    url: "/installation-windows"
   },
   {
     imageUrl: '/images/views/services/Glazing.jpg',
     textButton: 'Остекление',
     variantsService: 'веранды, беседки, терассы',
+    url: "/glazing"
   },
   {
     imageUrl: '/images/views/services/CountryWindows.jpg',
     textButton: 'Дачные окна',
     variantsService: '',
+    url: '/country-windows'
   },
 ]
 
@@ -80,9 +84,9 @@ const images = [
     <p class="header-services">наши услуги</p>
     <v-container class="block-services">
       <v-row style="flex-wrap: nowrap">
-        <v-col cols="12" sm="12" md="3" lg="3" v-for="service in services" class="card-service">
-          <CardService :key="service.imageUrl" :image-url="service.imageUrl" :text-button="service.textButton"
-            :variants-service="service.variantsService">
+        <v-col cols="6" sm="5" md="3" lg="3" v-for="service in services" class="card-service">
+          <CardService :key="service.imageUrl" :image-url="service.imageUrl" :url="service.url"
+            :text-button="service.textButton" :variants-service="service.variantsService">
           </CardService>
         </v-col>
       </v-row>

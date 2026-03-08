@@ -30,7 +30,32 @@ const router = createRouter({
     path: "/windows-repair",
     name: "WindowsRepair",
     component: WindowsRepairView
-  }
+  },
+  {
+    path: '/country-windows',
+    name: 'CountryWindows',
+    component: () => import("@/views/windowsServices/CountryWindows.vue")
+  },
+  {
+    path: '/country-windows',
+    name: 'CountryWindows',
+    component: () => import("@/views/windowsServices/CountryWindows.vue")
+  },
+  {
+    path: '/glazing',
+    name: 'Glazing',
+    component: () => import("@/views/windowsServices/Glazing.vue")
+  },
+  {
+    path: '/installation-windows',
+    name: 'InstallationWindows',
+    component: () => import("@/views/windowsServices/InstallationWindows.vue")
+  },
+  {
+    path: '/custom-windows',
+    name: 'CustomWindows',
+    component: () => import("@/views/windowsServices/CustomWindows.vue")
+  },
   ],
 })
 

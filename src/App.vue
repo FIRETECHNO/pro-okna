@@ -46,7 +46,7 @@ const activePage = computed(() => navBtns.value.find(btn => btn.url === route.pa
 
 // SEO через computed
 useHead(computed(() => ({
-  title: activePage.value?.title || 'Pro-Okna159',
+  title: activePage.value?.title || 'ПРО ОКНА',
   meta: [
     { name: 'description', content: activePage.value?.description || 'Лучшие окна и балконы в вашем городе' },
     { name: 'robots', content: 'index, follow' }
@@ -149,7 +149,7 @@ watch(() => route.path, updateActiveBtns)
           </v-row>
         </div>
       </v-navigation-drawer>
-      <v-main :style="mdAndUp ? 'margin-top: 174px' : ''">
+      <v-main :style="mdAndUp ? 'margin-top: 174px' : 'margin-top: 82px'">
         <v-container class="container" style="max-width: 100% !important; height: 100%; margin: 0; padding: 0 0 16px 0">
           <RouterView v-slot="{ Component }">
             <Transition name="fade" mode="out-in">

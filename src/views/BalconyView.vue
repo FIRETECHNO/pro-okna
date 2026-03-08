@@ -81,7 +81,7 @@ const images = [
     <p class="header-services">наши услуги</p>
     <v-container class="block-services">
       <v-row style="flex-wrap: nowrap">
-        <v-col cols="12" sm="12" md="3" lg="3" v-for="service in services" class="card-service">
+        <v-col cols="6" sm="5" md="3" lg="3" v-for="service in services" class="card-service">
           <CardService :key="service.imageUrl" :image-url="service.imageUrl" :text-button="service.textButton"
             :variants-service="service.variantsService">
           </CardService>
