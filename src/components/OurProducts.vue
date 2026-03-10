@@ -70,7 +70,7 @@ const imageList = props.urlImages
 
 .img-slide {
   width: 80%;
-  height: 50vh;
+  height: 60vh;
   border-radius: 35px;
   background-position: center;
   user-select: none;
@@ -85,31 +85,31 @@ const imageList = props.urlImages
 
 @media (max-width: 1080px) {
   .img-slide {
-    height: 45vh;
+    height: 50vh;
   }
 }
 
 @media (max-width: 960px) {
   .img-slide {
-    height: 40vh;
+    height: 45vh;
   }
 }
 
 @media (max-width: 768px) {
   .img-slide {
-    height: 35vh;
+    height: 40vh;
   }
 }
 
 @media (max-width: 580px) {
   .img-slide {
-    height: 30vh;
+    height: 35vh;
   }
 }
 
 @media (max-width: 425px) {
   .img-slide {
-    height: 25vh;
+    height: 30vh;
   }
 }
 </style>
