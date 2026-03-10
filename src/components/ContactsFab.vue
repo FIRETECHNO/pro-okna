@@ -22,7 +22,7 @@ const rotate = () => {
 }
 
 onMounted(() => {
-  timer = setInterval(rotate, 5500) // полный цикл ≈ 5.5 сек (5 сек показа + 0.5 сек переход)
+  timer = setInterval(rotate, 2600)
 })
 
 onUnmounted(() => {
