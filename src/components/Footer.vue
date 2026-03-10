@@ -14,14 +14,17 @@ let mdAndUp = computed(() => display.mdAndUp)
           ПН-ПТ с 9:00 до 17:00 <br>
           СБ-ВС выходной
         </v-col>
-        <v-col cols="6" class="d-flex flex-col flex-md-row justify-end align-end">
-          Всегда на связи <br> с 8:00 до 20:00 <br> без выходных
-          <div class="ml-0 ml-md-4">
-            <div>
-              <a href="tel:+7(950)473-91-17"><u>+7 (950) 473-91-17</u></a>
-            </div>
-            <div>
-              <a href="tel:+7(950)473-91-17"><u>позвонить</u></a>
+        <v-col cols="6" class="d-flex flex-col justify-end align-end">
+          <div>
+
+            Всегда на связи <br> с 8:00 до 20:00 <br> без выходных
+            <div class="mt-4">
+              <div>
+                <a href="tel:+7(950)473-91-17"><u>+7 (950) 473-91-17</u></a>
+              </div>
+              <div>
+                <a href="tel:+7(950)473-91-17"><u>позвонить</u></a>
+              </div>
             </div>
           </div>
         </v-col>
@@ -51,7 +54,7 @@ let mdAndUp = computed(() => display.mdAndUp)
         </v-col>
         <v-col cols="6" md="3" style="font-weight: 400 !important;" class="d-flex justify-end">2004-{{ new
           Date().getFullYear()
-        }} © Про
+          }} © Про
           окна</v-col>
       </v-row>
 

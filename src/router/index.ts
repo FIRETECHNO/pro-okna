@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import WindowsView from '@/views/WindowsView.vue'
 import BalconyView from '@/views/BalconyView.vue'
 import WindowsRepairView from '@/views/WindowsRepairView.vue'
+import PaymentView from '@/views/PaymentView.vue'
 
 const router = createRouter({
   scrollBehavior(to, from, savedPosition) {
@@ -31,6 +32,11 @@ const router = createRouter({
       path: '/windows-repair',
       name: 'WindowsRepair',
       component: WindowsRepairView,
+    },
+    {
+      path: '/payment',
+      name: 'Payment',
+      component: PaymentView,
     },
     {
       path: '/country-windows',

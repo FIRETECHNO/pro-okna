@@ -36,7 +36,14 @@ let navBtns = ref([
     isActive: false,
     title: 'Ремонт окон',
     description: 'Профессиональный ремонт окон быстро и качественно'
-  }
+  },
+  {
+    name: 'Рассрочка',
+    url: '/payment',
+    isActive: false,
+    title: 'Рассрочка',
+    description: 'Рассрочка до 6 месяцев. Без процентов и банка'
+  },
 ])
 
 let navigationDrawer = ref(false)
