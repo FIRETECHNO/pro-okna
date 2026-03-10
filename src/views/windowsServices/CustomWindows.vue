@@ -74,7 +74,7 @@ const steps = [
 }
 
 h1 {
-  font-size: clamp(1.25rem, 0.2557rem + 2.8409vw, 2.5rem);
+  font-size: clamp(2rem, 0.2557rem + 2.8409vw, 2.5rem);
   font-weight: 800;
 }
 
