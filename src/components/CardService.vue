@@ -22,7 +22,7 @@ function goToPage() {
 let { imageUrl, textButton, variantsService } = props
 </script>
 <template>
-  <div class="img-service" :style="{ backgroundImage: 'url(' + imageUrl + ')' }"></div>
+  <div @click="goToPage" class="img-service" :style="{ backgroundImage: 'url(' + imageUrl + ')' }"></div>
   <MyAccentButton class="accent-button" @click="goToPage"> {{ textButton }}
   </MyAccentButton>
   <p class="variants-service">
@@ -36,11 +36,14 @@ let { imageUrl, textButton, variantsService } = props
 }
 
 .img-service {
+  cursor: pointer;
   width: 100%;
-  height: 30vh;
+  aspect-ratio: 1;
+  /* height: 30vh; */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  border-radius: 4px;
 }
 
 .variants-service {
@@ -74,7 +77,7 @@ let { imageUrl, textButton, variantsService } = props
 
 @media (max-width: 425px) {
   .img-service {
-    height: 20vh;
+    /* height: 20vh; */
   }
 
   .accent-button {

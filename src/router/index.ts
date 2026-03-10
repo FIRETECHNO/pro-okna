@@ -37,11 +37,11 @@ const router = createRouter({
       name: 'CountryWindows',
       component: () => import('@/views/windowsServices/CountryWindows.vue'),
     },
-    {
-      path: '/country-windows',
-      name: 'CountryWindows',
-      component: () => import('@/views/windowsServices/CountryWindows.vue'),
-    },
+    // {
+    //   path: '/country-windows',
+    //   name: 'CountryWindows',
+    //   component: () => import('@/views/windowsServices/CountryWindows.vue'),
+    // },
     {
       path: '/glazing',
       name: 'Glazing',
@@ -67,11 +67,11 @@ const router = createRouter({
       name: 'GlazingBalconies',
       component: () => import('@/views/balconyServices/GlazingBalconies.vue'),
     },
-    {
-      path: '/insulation-balconies',
-      name: 'InsulationBalconies',
-      component: () => import('@/views/balconyServices/InsulationBalconies.vue'),
-    },
+    // {
+    //   path: '/insulation-balconies',
+    //   name: 'InsulationBalconies',
+    //   component: () => import('@/views/balconyServices/InsulationBalconies.vue'),
+    // },
     {
       path: '/interior-decoration',
       name: 'InteriorDecoration',

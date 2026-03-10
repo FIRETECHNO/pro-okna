@@ -38,22 +38,22 @@ const services = [
   },
   {
     imageUrl: '/images/views/services/InstallationWindows.jpg',
-    textButton: 'Окна с монтажем',
-    variantsService: 'под ключ',
+    textButton: 'Окна под ключ',
+    variantsService: 'с монтажем',
     url: "/installation-windows"
   },
   {
-    imageUrl: '/images/views/services/Glazing.jpg',
+    imageUrl: '/images/views/services/CountryWindows.jpg',
     textButton: 'Остекление',
     variantsService: 'веранды, беседки, терассы',
     url: "/glazing"
   },
-  {
-    imageUrl: '/images/views/services/CountryWindows.jpg',
-    textButton: 'Дачные окна',
-    variantsService: '',
-    url: '/country-windows'
-  },
+  // {
+  //   imageUrl: '',
+  //   textButton: 'Дачные окна',
+  //   variantsService: '',
+  //   url: '/country-windows'
+  // },
 ]
 
 const images = [
@@ -65,10 +65,10 @@ const images = [
 <template>
   <div>
     <v-container class="block-image">
-      <BlockImage image-url="/images/views/ViewsBlockImage.jpg">
+      <BlockImage image-url="/images/views/WindowsBlockImage.jpg">
         <template #mainText>
-          окна<br />
-          со скидкой до
+          скидки<br />
+          на окна до
         </template>
         <template #discount>
           <p style="color: #e52e2a">40%</p>
@@ -83,8 +83,8 @@ const images = [
     </v-container>
     <p class="header-services">наши услуги</p>
     <v-container class="block-services">
-      <v-row style="flex-wrap: nowrap">
-        <v-col cols="6" sm="5" md="3" lg="3" v-for="service in services" class="card-service">
+      <v-row style="flex-wrap: nowrap; display: flex;" class="justify-start ">
+        <v-col cols="8" sm="5" md="4" lg="3" v-for="service in services" class="card-service ms-md-auto me-md-auto">
           <CardService :key="service.imageUrl" :image-url="service.imageUrl" :url="service.url"
             :text-button="service.textButton" :variants-service="service.variantsService">
           </CardService>
@@ -107,8 +107,8 @@ const images = [
 <style scoped>
 .block-image {
   max-width: 100% !important;
-  padding: 16px 0px 0px 0px;
-  height: 65vh;
+  padding: 0px;
+  height: 55vh;
 }
 
 .header-advantages {
@@ -123,7 +123,7 @@ const images = [
 .block-advantages {
   display: flex;
   padding: 6px 8px 0px 8px;
-  justify-items: space-between;
+  justify-content: space-between;
 }
 
 .header-services {

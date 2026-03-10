@@ -29,7 +29,7 @@ img {
   display: flex;
   align-items: center;
   padding: 0;
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }

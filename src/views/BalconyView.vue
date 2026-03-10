@@ -36,14 +36,14 @@ const services = [
     variantsService: '',
     url: '/glazing-balconies',
   },
+  // {
+  //   imageUrl: '/images/balcony/services/InsulationBalconies.png',
+  //   textButton: 'Утепление балконов',
+  //   variantsService: '',
+  //   url: '/insulation-balconies',
+  // },
   {
-    imageUrl: '/images/balcony/services/InsulationBalconies.png',
-    textButton: 'Утепление балконов',
-    variantsService: '',
-    url: '/insulation-balconies',
-  },
-  {
-    imageUrl: '/images/balcony/services/InteriorDecoration.png',
+    imageUrl: '/images/balcony/services/InteriorDecoration.jpg',
     textButton: 'Внутренняя отделка',
     variantsService: 'для балконов и лоджий',
     url: '/interior-decoration',
@@ -67,8 +67,8 @@ const images = [
     <v-container class="block-image">
       <BlockImage image-url="/images/balcony/BalconyBlockImage.png">
         <template #mainText>
-          балконы<br />
-          со скидкой до
+          скидки<br />
+          на балконы до
         </template>
         <template #discount>
           <p style="color: #e52e2a">40%</p>
@@ -77,26 +77,16 @@ const images = [
     </v-container>
     <p class="header-advantages">работаем <span style="color: #e52e2a">C 2004 года</span></p>
     <v-container class="block-advantages">
-      <Advantage
-        v-for="advantage in advantages"
-        :key="advantage.name"
-        :icon="advantage.icon"
-        :name="advantage.name"
-        :text="advantage.text"
-      >
+      <Advantage v-for="advantage in advantages" :key="advantage.name" :icon="advantage.icon" :name="advantage.name"
+        :text="advantage.text">
       </Advantage>
     </v-container>
     <p class="header-services">наши услуги</p>
     <v-container class="block-services">
-      <v-row style="flex-wrap: nowrap">
-        <v-col cols="6" sm="5" md="3" lg="3" v-for="service in services" class="card-service">
-          <CardService
-            :key="service.imageUrl"
-            :image-url="service.imageUrl"
-            :text-button="service.textButton"
-            :variants-service="service.variantsService"
-            :url="service.url"
-          >
+      <v-row style="flex-wrap: nowrap; display: flex;" class="justify-start ">
+        <v-col cols="8" sm="5" md="4" lg="3" v-for="service in services" class="card-service ms-md-auto me-md-auto">
+          <CardService :key="service.imageUrl" :image-url="service.imageUrl" :url="service.url"
+            :text-button="service.textButton" :variants-service="service.variantsService">
           </CardService>
         </v-col>
       </v-row>
@@ -117,8 +107,8 @@ const images = [
 <style scoped>
 .block-image {
   max-width: 100% !important;
-  padding: 16px 0px 0px 0px;
-  height: 65vh;
+  padding: 0px;
+  height: 55vh;
 }
 
 .header-advantages {

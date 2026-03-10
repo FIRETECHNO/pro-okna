@@ -90,8 +90,15 @@ watch(() => route.path, updateActiveBtns)
             <v-col class="flex flex-row items-center justify-end" cols="auto">
               <a href="https://yandex.ru/maps/-/CPq3QR25" target="_blank">
                 <div class="mr-10">
-                  <v-icon color="primary" size="20">mdi-map-marker</v-icon>
-                  ул. Стахановская, 43
+                  <u>
+                    Адрес офиса
+                  </u>
+                  <div>
+                    <v-icon color="primary" size="20">mdi-map-marker</v-icon>
+                    <b>
+                      ул. Стахановская, 43
+                    </b>
+                  </div>
                 </div>
               </a>
               <a href="tel:+7(950)473-91-17">
@@ -140,16 +147,25 @@ watch(() => route.path, updateActiveBtns)
                   <v-icon size="20">mdi-phone</v-icon>
                   +7 (950) 473-91-17
                 </a>
-                <div class="mr-10">
-                  <v-icon color="primary" size="20">mdi-map-marker</v-icon>
-                  ул. Стахановская, 43
-                </div>
+                <a href="https://yandex.ru/maps/-/CPq3QR25" target="_blank">
+                  <div class="mt-3">
+                    <div>
+                      <u>
+                        Адрес офиса
+                      </u>
+                    </div>
+                    <v-icon color="primary" size="20">mdi-map-marker</v-icon>
+                    <b>
+                      ул. Стахановская, 43
+                    </b>
+                  </div>
+                </a>
               </div>
             </v-col>
           </v-row>
         </div>
       </v-navigation-drawer>
-      <v-main :style="mdAndUp ? 'margin-top: 174px' : 'margin-top: 82px'">
+      <v-main :style="mdAndUp ? 'margin-top: 157px' : 'margin-top: 82px'">
         <v-container class="container" style="max-width: 100% !important; height: 100%; margin: 0; padding: 0 0 16px 0">
           <RouterView v-slot="{ Component }">
             <Transition name="fade" mode="out-in">

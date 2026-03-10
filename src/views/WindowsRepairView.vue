@@ -13,12 +13,12 @@ const advantages = [
   },
   {
     icon: 'mdi-clipboard-list-outline',
-    name: 'Бесплатный замер',
+    name: 'Бесплатная диагностика',
     text: 'Выезд специалиста в удобное для вас время.',
   },
   {
     icon: 'mdi-shield-check-outline',
-    name: 'Гарантия до 5 лет',
+    name: 'Гарантия 1 год',
     text: 'На материалы и выполненные работы.',
   },
 ]
