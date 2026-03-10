@@ -3,7 +3,8 @@ import BlockImageForWindowsRepairLg from '@/components/BlockImageForWindowsRepai
 import BlockImageForWindowsRepairOther from '@/components/BlockImageForWindowsRepairOther.vue'
 import OurServicesForWindowsRepair from '@/components/OurServicesForWindowsRepair.vue'
 import Advantage from '@/components/Advantage.vue'
-import FormWindowsView from '@/components/Form/FormWindowsView.vue'
+// import FormWindowsView from '@/components/Form/FormWindowsView.vue'
+import SignUpConsultation from '@/components/SignUpConsultation.vue'
 
 const advantages = [
   {
@@ -39,9 +40,11 @@ const advantages = [
       <OurServicesForWindowsRepair></OurServicesForWindowsRepair>
     </v-container>
 
-    <div id="order-form" style="margin-top: 50px;">
-      <FormWindowsView></FormWindowsView>
-    </div>
+    <v-row id="order-form" style="margin-top: 50px;" class="d-flex justify-center">
+      <v-col cols="12" md="10" lg="8">
+        <SignUpConsultation />
+      </v-col>
+    </v-row>
   </div>
 </template>
 <style scoped>

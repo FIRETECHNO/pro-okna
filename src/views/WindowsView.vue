@@ -39,7 +39,7 @@ const services = [
   {
     imageUrl: '/images/views/services/InstallationWindows.jpg',
     textButton: 'Окна под ключ',
-    variantsService: 'с монтажем',
+    variantsService: 'с монтажом',
     url: "/installation-windows"
   },
   {
