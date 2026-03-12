@@ -2,7 +2,7 @@
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation } from 'swiper/modules'
 import MyAccentButton from './MyAccentButton.vue'
-import { useRoute } from 'vue-router';
+import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const props = defineProps<{
@@ -17,9 +17,10 @@ const imageList = props.urlImages
   <v-container style="max-width: 100% !important; padding: 0px; margin-top: 100px" class="our-products-container">
     <p class="text-our-products">Наши работы</p>
 
-    <Swiper style="width: 100%" :modules="[Navigation]" :slides-per-view="1" :space-between="1" :centered-slides="true"
+    <Swiper style="width: 100%" :modules="[Navigation]" :slides-per-view="1" :space-between="20" :centered-slides="true"
       :loop="true" :breakpoints="{
-        769: { slidesPerView: 1.5 },
+        960: { slidesPerView: 3 },
+        600: { slidesPerView: 2 },
       }" navigation>
       <SwiperSlide v-for="image in imageList">
         <img :src="image" class="img-slide" alt="" />
@@ -27,8 +28,7 @@ const imageList = props.urlImages
     </Swiper>
     <div class="button-our-products">
       <a :href="route.path + '#order-form'">
-        <MyAccentButton style="width: 20%; min-width: 180px">Хочу так же!
-        </MyAccentButton>
+        <MyAccentButton style="width: 20%; min-width: 180px">Хочу так же! </MyAccentButton>
       </a>
     </div>
   </v-container>
@@ -69,12 +69,11 @@ const imageList = props.urlImages
 }
 
 .img-slide {
-  width: 80%;
-  height: 60vh;
-  border-radius: 35px;
+  width: 90%;
+  height: 40vh;
   background-position: center;
   user-select: none;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .button-our-products {
@@ -85,31 +84,25 @@ const imageList = props.urlImages
 
 @media (max-width: 1080px) {
   .img-slide {
-    height: 50vh;
+    height: 35vh;
   }
 }
 
 @media (max-width: 960px) {
   .img-slide {
-    height: 45vh;
+    height: 35vh;
   }
 }
 
 @media (max-width: 768px) {
   .img-slide {
-    height: 40vh;
+    height: 30vh;
   }
 }
 
 @media (max-width: 580px) {
   .img-slide {
-    height: 35vh;
-  }
-}
-
-@media (max-width: 425px) {
-  .img-slide {
-    height: 30vh;
+    height: 25vh;
   }
 }
 </style>

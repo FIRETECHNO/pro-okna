@@ -42,7 +42,7 @@ const advantages = [
 
     <v-row id="order-form" style="margin-top: 50px;" class="d-flex justify-center">
       <v-col cols="12" md="10" lg="8">
-        <SignUpConsultation>Записаться на бесплатный замер</SignUpConsultation>
+        <SignUpConsultation></SignUpConsultation>
       </v-col>
     </v-row>
   </div>
