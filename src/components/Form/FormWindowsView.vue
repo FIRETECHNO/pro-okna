@@ -15,12 +15,10 @@ const schemaOfRequest = yup.object({
   phone: yup
     .string()
     .required('Укажите телефон')
-    .matches(/^\+?\d{10,12}$/, 'Неверный формат телефона'),
+    .matches(/^\+?[\d\s\(\)\-]{10,15}$/, 'Неверный формат телефона'),
   email: yup.string().email().required(),
   comment: yup.string(),
-  consent: yup
-    .boolean()
-    .oneOf([true], 'Необходимо дать согласие на обработку персональных данных'),
+  consent: yup.boolean().oneOf([true], 'Необходимо дать согласие на обработку персональных данных'),
 })
 
 let formRequest = useForm({
@@ -40,20 +38,20 @@ phone.value.value = request.value.phone
 email.value.value = request.value.email
 comment.value.value = request.value.comment
 
-let captchaToken = '';
+let captchaToken = ''
 
 async function checkToken(): Promise<boolean> {
   try {
-    console.log(captchaToken);
+    console.log(captchaToken)
 
-    let res = await fetch("https://functions.yandexcloud.net/d4e1o2dt1n15ah338ais", {
-      method: "POST",
+    let res = await fetch('https://functions.yandexcloud.net/d4e1o2dt1n15ah338ais', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        token: captchaToken
-      })
+        token: captchaToken,
+      }),
     })
     if (res.status == 200) {
       return true
@@ -67,32 +65,31 @@ async function checkToken(): Promise<boolean> {
 async function onSuccess(values: any) {
   try {
     let isTokenValid = await checkToken()
-    if (!isTokenValid) return;
+    if (!isTokenValid) return
 
-    let response = await fetch("https://api.formtomail.ru/send", {
-      method: "POST",
-      mode: "cors",
+    let response = await fetch('https://api.formtomail.ru/send', {
+      method: 'POST',
+      mode: 'cors',
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        // to: "mymail@mail.ru", 
-        title: "Новая заявка PRO ОКНА",
+        // to: "mymail@mail.ru",
+        title: 'Новая заявка PRO ОКНА',
         body: {
-          "Имя": values.login,
-          "Телефон": values.phone,
-          "Емейл": values.email,
-          "Комментарий": values.comment
+          Имя: values.login,
+          Телефон: values.phone,
+          Емейл: values.email,
+          Комментарий: values.comment,
         },
-        apiKey: import.meta.env.VITE_EMAIL_API_TOKEN
-      })
-    });
-    let body = await response.json();
+        apiKey: import.meta.env.VITE_EMAIL_API_TOKEN,
+      }),
+    })
+    let body = await response.json()
 
-    if (response.status == 200)
-      result.value = 'Ваша заявка отправлена'
+    if (response.status == 200) result.value = 'Ваша заявка отправлена'
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
 }
 
@@ -108,17 +105,17 @@ declare global {
 }
 
 onMounted(() => {
-  const script = document.createElement("script")
-  script.src = "https://smartcaptcha.yandexcloud.net/captcha.js"
+  const script = document.createElement('script')
+  script.src = 'https://smartcaptcha.yandexcloud.net/captcha.js'
   script.defer = true
 
   script.onload = () => {
-    window.smartCaptcha.render("captcha-container", {
+    window.smartCaptcha.render('captcha-container', {
       sitekey: import.meta.env.VITE_SC_TOKEN,
       callback: (token: string) => {
-        console.log("captcha token:", token)
-        captchaToken = token;
-      }
+        console.log('captcha token:', token)
+        captchaToken = token
+      },
     })
   }
 
@@ -131,28 +128,61 @@ onMounted(() => {
       <v-col cols="12">
         <p class="text-by-form">Оставьте заявку — мы перезвоним в течение 15 минут</p>
       </v-col>
-      <v-col cols="0" md="6" style="height: 0; padding: 0;">
-
-      </v-col>
+      <v-col cols="0" md="6" style="height: 0; padding: 0"> </v-col>
       <v-col cols="12" sm="8" md="4" class="form-container">
         <v-form @submit="onSubmitRequest" class="form-windows">
-          <input class="text-input-container" type="login" name="login" v-model="login.value.value" placeholder="ФИО *"
-            required />
-          <input class="text-input-container" type="phone" name="phone" v-model="phone.value.value"
-            placeholder="Телефон *" required />
-          <input class="text-input-container" type="email" name="email" v-model="email.value.value"
-            placeholder="Почта *" required />
-          <input class="text-input-container comment-input" placeholder="Комментарий" type="comment" name="comment"
-            v-model="comment.value.value" />
-          <div style="height: 100px" id="captcha-container" class="smart-captcha"
-            data-sitekey="ysc1_A8A6utxbx5AKfmsemexgT466KnOJY5tlD4afLP7tf09e6631"></div>
-          <div style="color: white;">
-            <v-checkbox v-model="consent.value.value" :error-messages="consent.errorMessage.value" hide-details="auto"
-              required>
+          <input
+            class="text-input-container"
+            type="login"
+            name="login"
+            v-model="login.value.value"
+            placeholder="ФИО *"
+            required
+          />
+          <input
+            class="text-input-container"
+            type="phone"
+            name="phone"
+            v-model="phone.value.value"
+            placeholder="Телефон *"
+            required
+          />
+          <input
+            class="text-input-container"
+            type="email"
+            name="email"
+            v-model="email.value.value"
+            placeholder="Почта *"
+            required
+          />
+          <input
+            class="text-input-container comment-input"
+            placeholder="Комментарий"
+            type="comment"
+            name="comment"
+            v-model="comment.value.value"
+          />
+          <div
+            style="height: 100px"
+            id="captcha-container"
+            class="smart-captcha"
+            data-sitekey="ysc1_A8A6utxbx5AKfmsemexgT466KnOJY5tlD4afLP7tf09e6631"
+          ></div>
+          <div style="color: white">
+            <v-checkbox
+              v-model="consent.value.value"
+              :error-messages="consent.errorMessage.value"
+              hide-details="auto"
+              required
+            >
               <template #label>
                 <span>
                   Даю согласие на&nbsp;
-                  <a class="agreement-highlight" href="/personal-data-agreement.pdf" target="_blank">
+                  <a
+                    class="agreement-highlight"
+                    href="/personal-data-agreement.pdf"
+                    target="_blank"
+                  >
                     обработку персональных данных
                   </a>
                 </span>
@@ -308,5 +338,6 @@ onMounted(() => {
   }
 }
 
-@media (max-width: 500px) {}
+@media (max-width: 500px) {
+}
 </style>

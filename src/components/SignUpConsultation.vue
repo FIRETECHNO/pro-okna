@@ -17,7 +17,7 @@ const schemaOfRequest = yup.object({
   phone: yup
     .string()
     .required('Укажите телефон')
-    .matches(/^\+?\d{10,12}$/, 'Неверный формат телефона'),
+    .matches(/^\+?[\d\s\(\)\-]{10,15}$/, 'Неверный формат телефона'),
   consent: yup.boolean().oneOf([true], 'Необходимо дать согласие на обработку персональных данных'),
 })
 
@@ -75,8 +75,13 @@ const onSubmitRequest = handleSubmit(onSuccess, onInvalid)
         <v-form @submit.prevent="onSubmitRequest">
           <v-row class="flex justify-center">
             <v-col cols="12" md="6">
-              <input type="text" name="login" v-model="login.value.value" placeholder="ФИО"
-                class="input-consultation-container" />
+              <input
+                type="text"
+                name="login"
+                v-model="login.value.value"
+                placeholder="ФИО"
+                class="input-consultation-container"
+              />
               <Transition>
                 <div v-if="login.errors.value.length > 0" class="errors-container">
                   {{ login.errors.value[0] }}
@@ -85,8 +90,13 @@ const onSubmitRequest = handleSubmit(onSuccess, onInvalid)
             </v-col>
             <v-col cols="12" md="6">
               <div class="flex flex-col">
-                <input type="tel" name="phone" v-model="phone.value.value" placeholder="Номер телефона"
-                  class="input-consultation-container" />
+                <input
+                  type="tel"
+                  name="phone"
+                  v-model="phone.value.value"
+                  placeholder="Номер телефона"
+                  class="input-consultation-container"
+                />
                 <Transition name="fade">
                   <div v-if="phone.errors.value.length > 0" class="errors-container">
                     {{ phone.errors.value[0] }}
@@ -96,12 +106,20 @@ const onSubmitRequest = handleSubmit(onSuccess, onInvalid)
             </v-col>
 
             <v-col cols="12" class="flex justify-center">
-              <v-checkbox v-model="consent.value.value" :error-messages="consent.errorMessage.value" hide-details="auto"
-                required>
+              <v-checkbox
+                v-model="consent.value.value"
+                :error-messages="consent.errorMessage.value"
+                hide-details="auto"
+                required
+              >
                 <template #label>
                   <span>
                     Даю согласие на&nbsp;
-                    <a class="agreement-highlight" href="/personal-data-agreement.pdf" target="_blank">
+                    <a
+                      class="agreement-highlight"
+                      href="/personal-data-agreement.pdf"
+                      target="_blank"
+                    >
                       обработку персональных данных
                     </a>
                   </span>
@@ -111,7 +129,11 @@ const onSubmitRequest = handleSubmit(onSuccess, onInvalid)
           </v-row>
 
           <div class="div-button-consultation-container" style="justify-content: center">
-            <MyAccentButton class="button-consultation-container" :disabled="!meta.valid" type="submit">
+            <MyAccentButton
+              class="button-consultation-container"
+              :disabled="!meta.valid"
+              type="submit"
+            >
               Отправить заявку
             </MyAccentButton>
           </div>
