@@ -12,34 +12,27 @@
           диагностикой
         </p>
       </v-col>
-      <v-col
-        cols="3"
-        style="
+      <v-col cols="3" style="
           background: radial-gradient(rgba(123, 132, 132, 1), rgba(55, 55, 55, 1));
           position: relative;
-        "
-      >
-        <img
-          src="/images/windows-repair/WindowsCorner.png"
-          alt=""
-          style="
+        ">
+        <img src="/images/windows-repair/WindowsCorner.png" alt="" style="
             transform: scaleX(-1);
             position: absolute;
             right: 12vw;
-            top: 10vh;
-            max-height: 55vh;
-          "
-        />
+            max-height: 50vh;
+          " />
       </v-col>
     </v-row>
   </v-container>
 </template>
 <style scoped>
 .container-block-image {
-  height: 60vh;
+  height: 50vh;
   min-width: 100% !important;
   padding: 0px;
 }
+
 .background-image {
   font-size: 37px;
   font-weight: 700;
@@ -53,9 +46,10 @@
   background-size: cover;
   background-position: center;
   background-blend-mode: screen;
-  padding-left: 10vw;
-  padding-top: 12vh;
+  padding-left: 100px;
+  padding-top: 100px;
 }
+
 .text-above {
   background-color: rgba(55, 55, 55, 1);
   font-size: 13px;

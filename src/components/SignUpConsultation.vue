@@ -18,9 +18,7 @@ const schemaOfRequest = yup.object({
     .string()
     .required('Укажите телефон')
     .matches(/^\+?\d{10,12}$/, 'Неверный формат телефона'),
-  consent: yup
-    .boolean()
-    .oneOf([true], 'Необходимо дать согласие на обработку персональных данных'),
+  consent: yup.boolean().oneOf([true], 'Необходимо дать согласие на обработку персональных данных'),
 })
 
 const formRequest = useForm({
@@ -36,28 +34,27 @@ const consent = useField('consent')
 
 async function onSuccess(values: any) {
   try {
-    let response = await fetch("https://api.formtomail.ru/send", {
-      method: "POST",
-      mode: "cors",
+    let response = await fetch('https://api.formtomail.ru/send', {
+      method: 'POST',
+      mode: 'cors',
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        // to: "mymail@mail.ru", 
-        title: "Новая заявка PRO ОКНА",
+        // to: "mymail@mail.ru",
+        title: 'Новая заявка PRO ОКНА',
         body: {
-          "Имя": values.login,
-          "Телефон": values.phone
+          Имя: values.login,
+          Телефон: values.phone,
         },
-        apiKey: import.meta.env.VITE_EMAIL_API_TOKEN
-      })
-    });
-    let body = await response.json();
+        apiKey: import.meta.env.VITE_EMAIL_API_TOKEN,
+      }),
+    })
+    let body = await response.json()
 
-    if (response.status == 200)
-      result.value = 'Ваша заявка отправлена'
+    if (response.status == 200) result.value = 'Ваша заявка отправлена'
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
 }
 
@@ -71,15 +68,20 @@ const onSubmitRequest = handleSubmit(onSuccess, onInvalid)
   <v-container class="consultation-container">
     <v-row style="margin: 0">
       <v-col cols="12" class="consultation-text-form-container">
-        <p>Записаться на консультацию</p>
+        <slot>Записаться на консультацию</slot>
       </v-col>
 
       <v-col cols="12" class="consultation-form-container">
         <v-form @submit.prevent="onSubmitRequest">
           <v-row class="flex justify-center">
             <v-col cols="12" md="6">
-              <input type="text" name="login" v-model="login.value.value" placeholder="ФИО"
-                class="input-consultation-container" />
+              <input
+                type="text"
+                name="login"
+                v-model="login.value.value"
+                placeholder="ФИО"
+                class="input-consultation-container"
+              />
               <Transition>
                 <div v-if="login.errors.value.length > 0" class="errors-container">
                   {{ login.errors.value[0] }}
@@ -88,8 +90,13 @@ const onSubmitRequest = handleSubmit(onSuccess, onInvalid)
             </v-col>
             <v-col cols="12" md="6">
               <div class="flex flex-col">
-                <input type="tel" name="phone" v-model="phone.value.value" placeholder="Номер телефона"
-                  class="input-consultation-container" />
+                <input
+                  type="tel"
+                  name="phone"
+                  v-model="phone.value.value"
+                  placeholder="Номер телефона"
+                  class="input-consultation-container"
+                />
                 <Transition name="fade">
                   <div v-if="phone.errors.value.length > 0" class="errors-container">
                     {{ phone.errors.value[0] }}
@@ -99,12 +106,20 @@ const onSubmitRequest = handleSubmit(onSuccess, onInvalid)
             </v-col>
 
             <v-col cols="12" class="flex justify-center">
-              <v-checkbox v-model="consent.value.value" :error-messages="consent.errorMessage.value" hide-details="auto"
-                required>
+              <v-checkbox
+                v-model="consent.value.value"
+                :error-messages="consent.errorMessage.value"
+                hide-details="auto"
+                required
+              >
                 <template #label>
                   <span>
                     Даю согласие на&nbsp;
-                    <a class="agreement-highlight" href="/personal-data-agreement.pdf" target="_blank">
+                    <a
+                      class="agreement-highlight"
+                      href="/personal-data-agreement.pdf"
+                      target="_blank"
+                    >
                       обработку персональных данных
                     </a>
                   </span>
@@ -114,7 +129,11 @@ const onSubmitRequest = handleSubmit(onSuccess, onInvalid)
           </v-row>
 
           <div class="div-button-consultation-container" style="justify-content: center">
-            <MyAccentButton class="button-consultation-container" :disabled="!meta.valid" type="submit">
+            <MyAccentButton
+              class="button-consultation-container"
+              :disabled="!meta.valid"
+              type="submit"
+            >
               Отправить заявку
             </MyAccentButton>
           </div>

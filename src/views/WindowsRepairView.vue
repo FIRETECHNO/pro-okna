@@ -27,7 +27,7 @@ const advantages = [
 </script>
 <template>
   <div>
-    <v-container class="co" style="max-width: 100% !important; padding: 16px 0px">
+    <v-container style="max-width: 100% !important; padding: 16px 0px">
       <BlockImageForWindowsRepairLg class="d-none d-lg-flex"> </BlockImageForWindowsRepairLg>
       <BlockImageForWindowsRepairOther class="d-flex d-lg-none"></BlockImageForWindowsRepairOther>
     </v-container>
@@ -42,18 +42,12 @@ const advantages = [
 
     <v-row id="order-form" style="margin-top: 50px;" class="d-flex justify-center">
       <v-col cols="12" md="10" lg="8">
-        <SignUpConsultation />
+        <SignUpConsultation>Записаться на бесплатный замер</SignUpConsultation>
       </v-col>
     </v-row>
   </div>
 </template>
 <style scoped>
-@media (max-width: 960px) {
-  .co {
-    margin-top: 94px;
-  }
-}
-
 .block-advantages {
   display: flex;
   /* padding: 6px 8px 0px 8px; */
