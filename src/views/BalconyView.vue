@@ -5,6 +5,7 @@ import CardService from '@/components/CardService.vue'
 import FormWindowsView from '@/components/Form/FormWindowsView.vue'
 import OurProducts from '@/components/OurProducts.vue'
 import SignUpConsultation from '@/components/SignUpConsultation.vue'
+import Reviews from '@/components/Reviews.vue'
 
 const advantages = [
   {
@@ -77,16 +78,33 @@ const images = [
     </v-container>
     <p class="header-advantages">работаем <span style="color: #e52e2a">C 2004 года</span></p>
     <v-container class="block-advantages">
-      <Advantage v-for="advantage in advantages" :key="advantage.name" :icon="advantage.icon" :name="advantage.name"
-        :text="advantage.text">
+      <Advantage
+        v-for="advantage in advantages"
+        :key="advantage.name"
+        :icon="advantage.icon"
+        :name="advantage.name"
+        :text="advantage.text"
+      >
       </Advantage>
     </v-container>
     <p class="header-services">наши услуги</p>
     <v-container class="block-services">
-      <v-row style="flex-wrap: nowrap; display: flex;" class="justify-start ">
-        <v-col cols="8" sm="5" md="4" lg="3" v-for="service in services" class="card-service ms-md-auto me-md-auto">
-          <CardService :key="service.imageUrl" :image-url="service.imageUrl" :url="service.url"
-            :text-button="service.textButton" :variants-service="service.variantsService">
+      <v-row style="flex-wrap: nowrap; display: flex" class="justify-start">
+        <v-col
+          cols="8"
+          sm="5"
+          md="4"
+          lg="3"
+          v-for="service in services"
+          class="card-service ms-md-auto me-md-auto"
+        >
+          <CardService
+            :key="service.imageUrl"
+            :image-url="service.imageUrl"
+            :url="service.url"
+            :text-button="service.textButton"
+            :variants-service="service.variantsService"
+          >
           </CardService>
         </v-col>
       </v-row>
@@ -95,6 +113,7 @@ const images = [
       <FormWindowsView></FormWindowsView>
     </div>
     <OurProducts :url-images="images"></OurProducts>
+    <Reviews></Reviews>
     <v-container style="padding: 0">
       <v-row style="width: 100%; display: flex; justify-content: center; margin: 0px">
         <v-col cols="12" md="10" lg="8" style="padding: 0; width: 100%">

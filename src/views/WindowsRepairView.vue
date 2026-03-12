@@ -5,6 +5,7 @@ import OurServicesForWindowsRepair from '@/components/OurServicesForWindowsRepai
 import Advantage from '@/components/Advantage.vue'
 // import FormWindowsView from '@/components/Form/FormWindowsView.vue'
 import SignUpConsultation from '@/components/SignUpConsultation.vue'
+import Reviews from '@/components/Reviews.vue'
 
 const advantages = [
   {
@@ -23,7 +24,6 @@ const advantages = [
     text: 'На материалы и выполненные работы.',
   },
 ]
-
 </script>
 <template>
   <div>
@@ -32,15 +32,21 @@ const advantages = [
       <BlockImageForWindowsRepairOther class="d-flex d-lg-none"></BlockImageForWindowsRepairOther>
     </v-container>
     <v-container class="block-advantages flex-col flex-sm-row">
-      <Advantage v-for="advantage in advantages" :key="advantage.name" :icon="advantage.icon" :name="advantage.name"
-        :text="advantage.text">
+      <Advantage
+        v-for="advantage in advantages"
+        :key="advantage.name"
+        :icon="advantage.icon"
+        :name="advantage.name"
+        :text="advantage.text"
+      >
       </Advantage>
     </v-container>
     <v-container>
       <OurServicesForWindowsRepair></OurServicesForWindowsRepair>
     </v-container>
+    <Reviews></Reviews>
 
-    <v-row id="order-form" style="margin-top: 50px;" class="d-flex justify-center">
+    <v-row id="order-form" style="margin-top: 50px" class="d-flex justify-center">
       <v-col cols="12" md="10" lg="8">
         <SignUpConsultation></SignUpConsultation>
       </v-col>
