@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FormWindowsView from '@/components/Form/FormWindowsView.vue'
+import SignUpConsultation from '@/components/SignUpConsultation.vue'
 import BackButton from '@/components/BackButton.vue'
 
 const steps = [
@@ -70,6 +70,9 @@ const steps = [
       <v-row class="d-flex justify-center">
         <v-col cols="12" sm="11" md="" lg="10" xl="9">
           <BackButton />
+        </v-col>
+
+        <v-col cols="12" sm="11" md="" lg="10" xl="9">
           <h1>Окна с монтажом</h1>
           <p class="intro-text">
             Это конструкции, которые устанавливаются в проём с соблюдением технологии монтажа,
@@ -77,22 +80,27 @@ const steps = [
             элементов конструкции.
           </p>
           <h2 class="mt-8 mb-6">Грамотная установка решает несколько задач:</h2>
-          <div class="benefits-grid">
-            <div class="benefit-card">
-              <div class="benefit-icon">🔥</div>
-              <p>Сохраняет тепло внутри помещения</p>
+          <div class="benefits-layout">
+            <div class="benefits-image">
+              <img src="/images/views/services/InstallationWindows2.webp" alt="Монтаж окон" />
             </div>
-            <div class="benefit-card">
-              <div class="benefit-icon">💧</div>
-              <p>Предотвращает образование конденсата</p>
-            </div>
-            <div class="benefit-card">
-              <div class="benefit-icon">🛡️</div>
-              <p>Защищает монтажный шов от разрушения</p>
-            </div>
-            <div class="benefit-card">
-              <div class="benefit-icon">⚙️</div>
-              <p>Обеспечивает правильную работу</p>
+            <div class="benefits-cards">
+              <div class="benefit-card">
+                <div class="benefit-icon">🔥</div>
+                <p>Сохраняет тепло внутри помещения</p>
+              </div>
+              <div class="benefit-card">
+                <div class="benefit-icon">💧</div>
+                <p>Предотвращает образование конденсата</p>
+              </div>
+              <div class="benefit-card">
+                <div class="benefit-icon">🛡️</div>
+                <p>Защищает монтажный шов от разрушения</p>
+              </div>
+              <div class="benefit-card">
+                <div class="benefit-icon">⚙️</div>
+                <p>Обеспечивает правильную работу</p>
+              </div>
             </div>
           </div>
           <h2 class="mb-6">Что входит в услугу</h2>
@@ -113,8 +121,11 @@ const steps = [
         </v-col>
       </v-row>
     </v-container>
-
-    <FormWindowsView />
+    <v-row class="d-flex justify-center">
+      <v-col cols="12" md="10" lg="8">
+        <SignUpConsultation />
+      </v-col>
+    </v-row>
   </div>
 </template>
 <style scoped>
@@ -140,12 +151,30 @@ h3 {
   font-weight: 300;
 }
 
-.benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
-  margin-top: 16px;
+.benefits-layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
   margin-bottom: 20px;
+}
+
+.benefits-image {
+  flex-shrink: 0;
+  width: 300px;
+}
+
+.benefits-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.benefits-cards {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .benefit-card {
@@ -172,5 +201,19 @@ h3 {
 p {
   font-size: clamp(1rem, 0.7513rem + 0.7102vw, 1.25rem);
   font-weight: 300;
+}
+
+@media (max-width: 768px) {
+  .benefits-layout {
+    flex-direction: column;
+  }
+
+  .benefits-image {
+    width: 100%;
+  }
+
+  .benefits-image img {
+    height: 250px;
+  }
 }
 </style>
