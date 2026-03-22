@@ -61,6 +61,12 @@ const images = [
   '/images/views/our-products/1.webp',
   '/images/views/our-products/2.jpg',
   '/images/views/our-products/3.jpg',
+  '/images/views/services/CustomWindows.jpg',
+  '/images/views/services/InstallationWindows.webp',
+  '/images/views/services/InstallationWindows2.webp',
+  '/images/views/services/Glazing.jpg',
+  '/images/views/services/Glazing2.jpg',
+  '/images/views/services/CountryWindows.jpg',
 ]
 </script>
 <template>
@@ -78,16 +84,33 @@ const images = [
     </v-container>
     <p class="header-advantages">работаем <span style="color: #e52e2a">C 2004 года</span></p>
     <v-container class="block-advantages">
-      <Advantage v-for="advantage in advantages" :key="advantage.name" :icon="advantage.icon" :name="advantage.name"
-        :text="advantage.text">
+      <Advantage
+        v-for="advantage in advantages"
+        :key="advantage.name"
+        :icon="advantage.icon"
+        :name="advantage.name"
+        :text="advantage.text"
+      >
       </Advantage>
     </v-container>
     <p class="header-services">наши услуги</p>
     <v-container class="block-services">
       <v-row style="flex-wrap: nowrap; display: flex" class="justify-start">
-        <v-col cols="8" sm="5" md="4" lg="3" v-for="service in services" class="card-service ms-md-auto me-md-auto">
-          <CardService :key="service.imageUrl" :image-url="service.imageUrl" :url="service.url"
-            :text-button="service.textButton" :variants-service="service.variantsService">
+        <v-col
+          cols="8"
+          sm="5"
+          md="4"
+          lg="3"
+          v-for="service in services"
+          class="card-service ms-md-auto me-md-auto"
+        >
+          <CardService
+            :key="service.imageUrl"
+            :image-url="service.imageUrl"
+            :url="service.url"
+            :text-button="service.textButton"
+            :variants-service="service.variantsService"
+          >
           </CardService>
         </v-col>
       </v-row>

@@ -58,9 +58,12 @@ const services = [
 ]
 
 const images = [
-  '/images/balcony/our-products/1.png',
-  '/images/balcony/our-products/2.png',
-  '/images/balcony/our-products/3.png',
+  '/images/balcony/services/GlazingBalconies.png',
+  '/images/balcony/services/InteriorDecoration.jpg',
+  '/images/balcony/services/AdditionalProducts.png',
+  '/images/balcony/services/InsulationBalconies.png',
+  '/images/balcony/services/WoodClapboard.webp',
+  '/images/balcony/services/PVCPanels.jpg',
 ]
 </script>
 <template>

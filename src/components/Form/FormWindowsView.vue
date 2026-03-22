@@ -131,58 +131,23 @@ onMounted(() => {
       <v-col cols="0" md="6" style="height: 0; padding: 0"> </v-col>
       <v-col cols="12" sm="8" md="4" class="form-container">
         <v-form @submit="onSubmitRequest" class="form-windows">
-          <input
-            class="text-input-container"
-            type="login"
-            name="login"
-            v-model="login.value.value"
-            placeholder="ФИО *"
-            required
-          />
-          <input
-            class="text-input-container"
-            type="phone"
-            name="phone"
-            v-model="phone.value.value"
-            placeholder="Телефон *"
-            required
-          />
-          <input
-            class="text-input-container"
-            type="email"
-            name="email"
-            v-model="email.value.value"
-            placeholder="Почта *"
-            required
-          />
-          <input
-            class="text-input-container comment-input"
-            placeholder="Комментарий"
-            type="comment"
-            name="comment"
-            v-model="comment.value.value"
-          />
-          <div
-            style="height: 100px"
-            id="captcha-container"
-            class="smart-captcha"
-            data-sitekey="ysc1_A8A6utxbx5AKfmsemexgT466KnOJY5tlD4afLP7tf09e6631"
-          ></div>
+          <input class="text-input-container" type="login" name="login" v-model="login.value.value" placeholder="ФИО *"
+            required />
+          <input class="text-input-container" type="phone" name="phone" v-model="phone.value.value"
+            placeholder="Телефон *" required />
+          <input class="text-input-container" type="email" name="email" v-model="email.value.value"
+            placeholder="Почта *" required />
+          <input class="text-input-container comment-input" placeholder="Комментарий" type="comment" name="comment"
+            v-model="comment.value.value" />
+          <div style="height: 100px" id="captcha-container" class="smart-captcha"
+            data-sitekey="ysc1_A8A6utxbx5AKfmsemexgT466KnOJY5tlD4afLP7tf09e6631"></div>
           <div style="color: white">
-            <v-checkbox
-              v-model="consent.value.value"
-              :error-messages="consent.errorMessage.value"
-              hide-details="auto"
-              required
-            >
+            <v-checkbox v-model="consent.value.value" :error-messages="consent.errorMessage.value" hide-details="auto"
+              required>
               <template #label>
                 <span>
                   Даю согласие на&nbsp;
-                  <a
-                    class="agreement-highlight"
-                    href="/personal-data-agreement.pdf"
-                    target="_blank"
-                  >
+                  <a class="agreement-highlight" href="/personal-data-agreement.pdf" target="_blank">
                     обработку персональных данных
                   </a>
                 </span>
@@ -209,7 +174,7 @@ onMounted(() => {
   padding-top: 5vh;
   padding-bottom: 5vh;
   /* height: 100vh; */
-  background-image: url('/images/FormBlock.png');
+  background-image: url('/images/FormBlock.jpg');
   background-color: rgba(0, 0, 0, 0.5);
   background-size: cover;
   background-position: center;
@@ -338,6 +303,5 @@ onMounted(() => {
   }
 }
 
-@media (max-width: 500px) {
-}
+@media (max-width: 500px) {}
 </style>
