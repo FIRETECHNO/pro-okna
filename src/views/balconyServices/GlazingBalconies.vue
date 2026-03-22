@@ -4,7 +4,6 @@ import BackButton from '@/components/BackButton.vue'
 </script>
 <template>
   <div>
-
     <v-container>
       <v-row class="d-flex justify-center">
         <v-col cols="12" sm="11" md="" lg="10" xl="9">
@@ -19,8 +18,11 @@ import BackButton from '@/components/BackButton.vue'
           </p>
           <v-row class="image-text-row">
             <v-col cols="12" xl="5" class="image-col">
-              <img src="/images/balcony/services/GlazingBalconies.png" alt="Тёплое остекление балкона"
-                class="content-image" />
+              <img
+                src="/images/balcony/services/GlazingBalconies.png"
+                alt="Тёплое остекление балкона"
+                class="content-image"
+              />
             </v-col>
             <v-col cols="12" md="" xl="7">
               <v-row>
@@ -38,7 +40,8 @@ import BackButton from '@/components/BackButton.vue'
                 <v-col cols="12" md="6">
                   <div class="text-col">
                     <p>
-                      <b>Варианты открывания:</b> распашной, откидной, поворотно-откидной, раздвижной.
+                      <b>Варианты открывания:</b> распашной, откидной, поворотно-откидной,
+                      раздвижной.
                     </p>
                     <p>Любой вариант дизайна, возможность покрасить профиль в любой цвет по RAL.</p>
                     <p>
@@ -63,6 +66,62 @@ import BackButton from '@/components/BackButton.vue'
             Расходы на теплые оконные системы оправданы: вы получаете долговечное и практичное
             остекление, которое прослужит дольше, чем алюминиевый профиль.
           </p>
+
+          <div class="divider"></div>
+
+          <h2>Холодное остекление</h2>
+          <p>
+            Стандартное холодное остекление для балконов и лоджий представляет собой алюминиевый
+            профиль. В отличие от теплого и полутеплого варианта, где используются стеклопакеты
+            (двойное стекло), здесь, как правило, устанавливается одинарное стекло.
+          </p>
+          <v-row class="image-text-row">
+            <v-col cols="12" xl="5" class="image-col">
+              <img
+                src="/images/balcony/services/GlazingBalconies.png"
+                alt="Холодное остекление балкона"
+                class="content-image"
+              />
+            </v-col>
+            <v-col cols="12" md="" xl="7">
+              <v-row>
+                <v-col cols="12" md="6">
+                  <div class="text-col">
+                    <b>Преимущества холодного остекления:</b>
+                    <p>• Стоимость — обойдется значительно дешевле ПВХ изделий</p>
+                    <p>
+                      • Небольшой вес — легкий алюминиевый профиль не добавит нагрузки на парапет
+                    </p>
+                    <p>• Легкая установка — не требуется укреплять парапет</p>
+                    <p>• Защита от пыли, ветра, дождя и снега круглый год</p>
+                    <p>• Удобство — раздвижные системы экономят место</p>
+                  </div>
+                </v-col>
+                <v-col cols="12" md="6">
+                  <div class="text-col">
+                    <p>
+                      <b>Отделку и утепление</b> пространства делают по желанию. Алюминиевый профиль
+                      не сохраняет тепло, использование утеплителя не играет существенной роли.
+                    </p>
+                    <p><b>Варианты открывания:</b> раздвижной, распашной.</p>
+                    <p>Любой вариант дизайна, возможность покрасить профиль в любой цвет по RAL.</p>
+                  </div>
+                </v-col>
+              </v-row>
+            </v-col>
+          </v-row>
+
+          <blockquote class="note">
+            <b>Недостатки:</b> Температура на лоджии в мороз будет мало отличаться от температуры на
+            улице. Зимой, при открывании створок, запотевшие стекла быстро леденеют. В
+            Санкт-Петербурге из-за высокой влажности воздуха в холодное время года подобное явление
+            не редкость.
+          </blockquote>
+
+          <p class="quote">
+            В остальном холодное остекление по сравнению с теплым — более дешевый вариант. Есть
+            разница в функциональности, поэтому перед выбором нужно взвесить за и против.
+          </p>
         </v-col>
       </v-row>
     </v-container>
@@ -77,10 +136,19 @@ import BackButton from '@/components/BackButton.vue'
 h1 {
   font-size: clamp(1.25rem, 0.2557rem + 2.8409vw, 2.5rem);
   font-weight: 800;
+  margin-bottom: 20px;
 }
 
 h2 {
   font-size: clamp(1.25rem, 0.7528rem + 1.4205vw, 1.875rem);
+  font-weight: 700;
+  margin-top: 40px;
+}
+
+.divider {
+  height: 2px;
+  background: #e0e0e0;
+  margin: 40px 0;
 }
 
 .note {

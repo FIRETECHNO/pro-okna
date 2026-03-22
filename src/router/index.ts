@@ -39,16 +39,6 @@ const router = createRouter({
       component: PaymentView,
     },
     {
-      path: '/country-windows',
-      name: 'CountryWindows',
-      component: () => import('@/views/windowsServices/CountryWindows.vue'),
-    },
-    // {
-    //   path: '/country-windows',
-    //   name: 'CountryWindows',
-    //   component: () => import('@/views/windowsServices/CountryWindows.vue'),
-    // },
-    {
       path: '/glazing',
       name: 'Glazing',
       component: () => import('@/views/windowsServices/Glazing.vue'),
@@ -73,11 +63,6 @@ const router = createRouter({
       name: 'GlazingBalconies',
       component: () => import('@/views/balconyServices/GlazingBalconies.vue'),
     },
-    // {
-    //   path: '/insulation-balconies',
-    //   name: 'InsulationBalconies',
-    //   component: () => import('@/views/balconyServices/InsulationBalconies.vue'),
-    // },
     {
       path: '/interior-decoration',
       name: 'InteriorDecoration',
