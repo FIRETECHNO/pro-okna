@@ -1,46 +1,98 @@
 <script setup lang="ts">
-import FormWindowsView from '@/components/Form/FormWindowsView.vue'
+import SignUpConsultation from '@/components/SignUpConsultation.vue'
 import BackButton from '@/components/BackButton.vue'
 </script>
 <template>
   <div>
-    <BackButton />
-
-    <div class="first-section-image" :style="{ backgroundImage: `url(${'/images/balcony/BalconyBlockImage.png'})` }">
-    </div>
-
-    <v-container style="
-        margin: clamp(3.75rem, 1.7614rem + 5.6818vw, 6.25rem) 0
-          clamp(3.75rem, 1.7614rem + 5.6818vw, 6.25rem) 0;
-      ">
+    <v-container>
       <v-row class="d-flex justify-center">
         <v-col cols="12" sm="11" md="" lg="10" xl="9">
+          <BackButton />
           <h1>Сопутствующие товары</h1>
-          <h2>Все необходимое для комфорта и функциональности ваших окон</h2>
-          <p>
-            Сопутствующие товары для окон и балконов — дополняем остекление всем необходимым для
-            максимального комфорта. Предлагаем широкий выбор аксессуаров и комплектующих: <br />•
-            Москитные сетки (рамные, раздвижные, рулонные) — надежная защита от насекомых.<br />•
-            Подоконники и отливы — пластиковые, алюминиевые, любых размеров и цветов.<br />• Откосы
-            — сэндвич-панели, пластик, штукатурка под покраску.<br />• Вентиляционные клапаны —
-            приточная вентиляция без потери тепла.<br />• Детские замки и блокираторы —
-            безопасность для семей с детьми.<br />• Жалюзи и рулонные шторы — защита от солнца и
-            посторонних глаз. Все товары в наличии и под заказ. Помогаем подобрать оптимальный
-            вариант под ваши окна и бюджет. Доставка и установка под ключ. Бесплатный выезд
-            замерщика для консультации.
+          <h2 class="subtitle">Все необходимое для комфорта</h2>
+
+          <div class="image-text-row">
+            <div class="image-col">
+              <img src="/images/balcony/services/AdditionalProducts.png" alt="Шкафы для балкона"
+                class="content-image" />
+            </div>
+            <div class="text-col">
+              <h3>Шкафы</h3>
+              <p>
+                Шкафы для балконов и лоджий — идеальное решение для хранения вещей и организации
+                пространства. Изготавливаем из влагостойких материалов, устойчивых к перепадам
+                температуры.
+              </p>
+              <p><b>Преимущества:</b></p>
+              <p>• Влагостойкие материалы — не деформируются от влаги</p>
+              <p>• Индивидуальные размеры — под любой балкон</p>
+              <p>• Разнообразие дизайнов — встроенные, корпусные, угловые</p>
+              <p>• Долговечность — срок службы более 15 лет</p>
+              <p>• Бесплатный замер и консультация</p>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="image-text-row reverse">
+            <div class="image-col">
+              <img src="/images/balcony/services/AdditionalProducts.png" alt="Сушилки для белья"
+                class="content-image" />
+            </div>
+            <div class="text-col">
+              <h3>Сушилки для белья</h3>
+              <p>
+                Сушилки для белья на балкон — практичное решение для сушки одежды без ущерба для
+                интерьера квартиры. Предлагаем напольные, потолочные и настенные модели.
+              </p>
+              <p><b>Виды сушилок:</b></p>
+              <p>• Потолочные — компактные, выдерживают до 20 кг</p>
+              <p>• Напольные — мобильные, легко складываются</p>
+              <p>• Настенные — стационарные, экономят пространство</p>
+              <p>• Раздвижные — универсальное решение для любого балкона</p>
+              <p><b>Материал:</b> алюминий, сталь с антикоррозийным покрытием</p>
+            </div>
+          </div>
+
+          <p class="highlight">
+            Все товары в наличии. Бесплатный выезд замерщика. Доставка и установка под ключ.
           </p>
         </v-col>
       </v-row>
     </v-container>
 
-    <FormWindowsView />
+    <v-row id="order-form" style="margin-top: 50px" class="d-flex justify-center">
+      <v-col cols="12" md="10" lg="8">
+        <SignUpConsultation />
+      </v-col>
+    </v-row>
   </div>
 </template>
 <style scoped>
-.first-section-image {
-  height: 40vh;
-  width: 100vw;
-  background-size: cover;
+.image-text-row {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.image-text-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.image-col {
+  flex: 0 0 400px;
+}
+
+.image-col img {
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.text-col {
+  flex: 1;
 }
 
 h1 {
@@ -48,13 +100,36 @@ h1 {
   font-weight: 800;
 }
 
-h2 {
-  font-size: clamp(1.25rem, 0.7528rem + 1.4205vw, 1.875rem);
+h2.subtitle {
+  font-size: clamp(1.1rem, 0.7rem + 1vw, 1.4rem);
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 0.7rem + 1.5vw, 1.75rem);
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #333;
 }
 
 p {
-  font-size: clamp(1.125rem, 0.8267rem + 0.8523vw, 1.5rem);
-  margin-top: 30px;
-  font-weight: 300;
+  font-size: clamp(1rem, 0.7rem + 1vw, 1.15rem);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.divider {
+  height: 2px;
+  background: #e0e0e0;
+  margin: 40px 0;
+}
+
+.highlight {
+  color: #e52e2a;
+  font-weight: 500;
+  margin-top: 24px;
+  font-size: clamp(1.1rem, 0.8rem + 1vw, 1.25rem);
 }
 </style>
