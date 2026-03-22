@@ -12,7 +12,7 @@ import BackButton from '@/components/BackButton.vue'
           <h2 class="subtitle">Комфортный отдых на свежем воздухе в любую погоду</h2>
           <v-row class="image-text-row">
             <v-col cols="12" xl="5" class="image-col">
-              <img src="/images/views/services/Glazing.jpg" alt="Остекление веранды" class="content-image" />
+              <img src="/images/views/services/Glazing2.jpg" alt="Остекление веранды" class="content-image" />
             </v-col>
             <v-col cols="12" md="" xl="7">
               <p>
