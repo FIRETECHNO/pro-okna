@@ -45,12 +45,12 @@ import BackButton from '@/components/BackButton.vue'
           </v-row>
         </v-col>
       </v-row>
-      <v-row id="order-form" style="margin-top: 50px" class="d-flex justify-center">
-        <v-col cols="12" md="10" lg="8">
-          <SignUpConsultation />
-        </v-col>
-      </v-row>
     </v-container>
+    <v-row id="order-form" style="margin-top: 50px" class="d-flex justify-center">
+      <v-col cols="12" md="10" lg="8">
+        <SignUpConsultation />
+      </v-col>
+    </v-row>
   </div>
 </template>
 <style scoped>
