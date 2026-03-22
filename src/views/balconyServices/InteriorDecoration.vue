@@ -1,42 +1,56 @@
 <script setup lang="ts">
-import FormWindowsView from '@/components/Form/FormWindowsView.vue'
+import SignUpConsultation from '@/components/SignUpConsultation.vue'
 import BackButton from '@/components/BackButton.vue'
 </script>
 <template>
   <div>
-    <BackButton />
-
-    <div
-      class="first-section-image"
-      :style="{ backgroundImage: `url(${'/images/balcony/BalconyBlockImage.png'})` }"
-    ></div>
-
-    <v-container
-      style="
-        margin: clamp(3.75rem, 1.7614rem + 5.6818vw, 6.25rem) 0
-          clamp(3.75rem, 1.7614rem + 5.6818vw, 6.25rem) 0;
-      "
-    >
+    <v-container>
       <v-row class="d-flex justify-center">
         <v-col cols="12" sm="11" md="" lg="10" xl="9">
-          <h1>Внутренняя отделка балконов и лоджии</h1>
-          <h2>Превращаем балкон в уютное помещение</h2>
-          <p>
-            Внутренняя отделка балконов и лоджий — превращаем техническое помещение в полноценную
-            комнату. Работаем с любыми типами помещений: утепленными и холодными, после остекления
-            или без него. Предлагаем различные варианты отделки: деревянная вагонка для уюта и
-            натуральности, практичные и влагостойкие ПВХ-панели, гипсокартон с покраской или обоями
-            для создания жилого пространства, а также декоративная штукатурка и камень для
-            премиальных решений. Выполняем полный комплекс работ: утепление стен и пола, черновая
-            подготовка, финишная отделка, установка освещения и розеток. Используем материалы,
-            устойчивые к перепадам температур и влажности. Бесплатный выезд замерщика для
-            консультации и сметы.
-          </p>
+          <BackButton />
+
+          <v-row class="image-text-row">
+            <v-col cols="12" md="6" class="text-col-right">
+              <h1>Отделка балкона ПВХ-панелями</h1>
+              <p>
+                Популярный способ внутренней отделки благодаря простоте монтажа, разнообразию дизайнов
+                и практичности. Этот материал подходит для застеклённых балконов.
+              </p>
+              <p><b>Выбор панелей:</b></p>
+              <p>• Тип соединения: шовные (шип-паз) или бесшовные</p>
+              <p>• Текстура: гладкие неприхотливы в уходе</p>
+              <p>• Толщина: оптимальная от 8 мм</p>
+              <p>• Цвет: светлые расширяют пространство, можно с имитацией дерева, камня, кирпича</p>
+            </v-col>
+            <v-col cols="12" md="6" class="image-col-left">
+              <img src="/images/balcony/services/PVCPanels.jpg" alt="ПВХ-панели для балкона" class="content-image" />
+            </v-col>
+          </v-row>
+
+          <v-row class="image-text-row">
+            <v-col cols="12" md="6" class="image-col">
+              <img src="/images/balcony/services/WoodClapboard.webp" alt="Деревянная вагонка" class="content-image" />
+            </v-col>
+            <v-col cols="12" md="6" class="text-col">
+              <h1>Деревянная вагонка</h1>
+              <p>
+                Подходит для отделки балкона. Обладает хорошими теплоизоляционными свойствами,
+                выглядит эстетично. Особенности: склонна к деформации при перепадах температуры и
+                влажности.
+              </p>
+              <p><b>Выбор материала:</b></p>
+              <p>• Хвойные: сосна, ель, кедр, лиственница</p>
+              <p>• Лиственные: липа, осина, дуб, ясень</p>
+            </v-col>
+          </v-row>
+        </v-col>
+      </v-row>
+      <v-row id="order-form" style="margin-top: 50px" class="d-flex justify-center">
+        <v-col cols="12" md="10" lg="8">
+          <SignUpConsultation />
         </v-col>
       </v-row>
     </v-container>
-
-    <FormWindowsView />
   </div>
 </template>
 <style scoped>
@@ -44,6 +58,24 @@ import BackButton from '@/components/BackButton.vue'
   height: 40vh;
   width: 100vw;
   background-size: cover;
+}
+
+.image-text-row {
+  margin-top: 20px;
+}
+
+.image-col {
+  display: flex;
+  align-items: center;
+}
+
+.content-image {
+  width: 100%;
+  height: auto;
+  max-height: 50vh;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 h1 {
@@ -55,9 +87,18 @@ h2 {
   font-size: clamp(1.25rem, 0.7528rem + 1.4205vw, 1.875rem);
 }
 
+.note {
+  background: #f5f5f5;
+  border-left: 4px solid #e52e2a;
+  padding: 16px 20px;
+  margin: 24px 0;
+  font-style: italic;
+  color: #555;
+  font-size: clamp(1rem, 0.7rem + 1vw, 1.25rem);
+}
+
 p {
-  font-size: clamp(1.125rem, 0.8267rem + 0.8523vw, 1.5rem);
-  margin-top: 30px;
-  font-weight: 300;
+  font-size: clamp(1rem, 0.7rem + 1vw, 1.25rem);
+  line-height: 1.6;
 }
 </style>
