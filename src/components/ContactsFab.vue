@@ -1,10 +1,20 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 
-const images = [
-  'icons/phone-icon.svg',
-  'icons/telegram-icon.svg'
-]
+const images = ['icons/phone-icon.svg', 'icons/telegram-icon.svg', 'icons/avito-icon.svg']
+
+const getHref = (index: number) => {
+  switch (index) {
+    case 0:
+      return 'tel:+7(950)473-91-17'
+    case 1:
+      return 'https://t.me/stekloservis59'
+    case 2:
+      return 'https://www.avito.ru/user/9fa439666d9087470efa0e5359f55f1b/profile?src=sharing'
+    default:
+      return '#'
+  }
+}
 
 const currentIndex = ref(0)
 const isFading = ref(false)
@@ -32,9 +42,15 @@ onUnmounted(() => {
 
 <template>
   <div class="floating-contact">
-    <a :href="currentIndex === 0 ? 'tel:+7(950)473-91-17' : 'https://t.me/stekloservis59'" target="_blank"
-      rel="noopener noreferrer" class="icon-link" :class="{ fading: isFading }"
-      :style="{ backgroundImage: `url(${images[currentIndex]})` }" aria-label="Связаться с нами"></a>
+    <a
+      :href="getHref(currentIndex)"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="icon-link"
+      :class="{ fading: isFading }"
+      :style="{ backgroundImage: `url(${images[currentIndex]})` }"
+      aria-label="Связаться с нами"
+    ></a>
   </div>
 </template>
 
