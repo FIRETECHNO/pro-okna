@@ -113,8 +113,16 @@ useHead(
         content: getSeoDescription(),
       },
       { name: 'robots', content: 'index, follow' },
+      { property: 'og:title', content: getSeoTitle() },
+      { property: 'og:description', content: getSeoDescription() },
+      { property: 'og:image', content: 'https://pro-okna59.ru/og-image.png' },
+      { property: 'og:url', content: `https://pro-okna59.ru${route.path}` },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:site_name', content: 'PRO ОКНА' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: 'https://pro-okna59.ru/og-image.png' },
     ],
-    link: [{ rel: 'canonical', href: `https://pro-okna159.ru${route.path}` }],
+    link: [{ rel: 'canonical', href: `https://pro-okna59.ru${route.path}` }],
   })),
 )
 
