@@ -11,10 +11,10 @@ import BackButton from '@/components/BackButton.vue'
           <h1>Остекление веранды, беседки, террасы</h1>
           <h2 class="subtitle">Комфортный отдых на свежем воздухе в любую погоду</h2>
           <v-row class="image-text-row">
-            <v-col cols="12" xl="5" class="image-col">
+            <v-col cols="12" md="5" lg="4" xl="4" class="image-col">
               <img src="/images/views/services/Glazing2.jpg" alt="Остекление веранды" class="content-image" />
             </v-col>
-            <v-col cols="12" md="" xl="7">
+            <v-col cols="12" md="7" lg="7" xl="8">
               <p>
                 Остекление веранд, беседок и террас под ключ — делаем открытые пространства
                 комфортными в любую погоду.

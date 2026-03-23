@@ -1,22 +1,23 @@
 <script setup lang="ts">
-import SignUpConsultation from '@/components/SignUpConsultation.vue';
-import BackButton from '@/components/BackButton.vue';
+import SignUpConsultation from '@/components/SignUpConsultation.vue'
+import BackButton from '@/components/BackButton.vue'
 
 const steps = [
   {
     number: 1,
     title: 'Заказ на сайте',
-    description: 'Заполните форму, это занимает не больше минуты'
+    description: 'Заполните <a href="#order-form">форму</a>, это занимает не больше минуты',
   },
   {
     number: 2,
     title: 'Изготовление на производстве',
-    description: 'Мы сами изготовим окна по вашим размерам от 3 до 5 рабочих дней'
+    description: 'Мы сами изготовим окна по вашим размерам от 3 до 5 рабочих дней',
   },
   {
     number: 3,
     title: 'Доставка на дом или самовывоз со склада',
-    description: 'Мы свяжемся с вами, когда окна будут готовы и доставим, если это будет необходимо'
+    description:
+      'Мы свяжемся с вами, когда окна будут готовы и доставим, если это будет необходимо',
   },
 ]
 </script>
@@ -37,14 +38,17 @@ const steps = [
           <v-row>
             <v-col cols="12">
               <div class="relative pl-8">
-                <div class="absolute left-0 top-0 bottom-0 current-bg" style="width: 3px;"></div>
+                <div class="absolute left-0 top-0 bottom-0 current-bg" style="width: 3px"></div>
                 <div v-for="(step, index) in steps" :key="index" class="mb-12 relative">
-                  <div
-                    style="width: 12px; height: 12px; border-radius: 999px; left: calc(-32px - 4px); top: calc(50% - 16px)"
-                    class="absolute current-bg">
-                  </div>
+                  <div style="
+                      width: 12px;
+                      height: 12px;
+                      border-radius: 999px;
+                      left: calc(-32px - 4px);
+                      top: calc(50% - 16px);
+                    " class="absolute current-bg"></div>
                   <h3 class="text-lg md:text-xl font-bold">{{ step.number }}. {{ step.title }}</h3>
-                  <p class="text-lg">{{ step.description }}</p>
+                  <p class="text-lg" v-html="step.description"></p>
                 </div>
 
                 <!-- <i class="text-lg">Первичные интервью больше не нужны.</i> -->
@@ -55,14 +59,18 @@ const steps = [
       </v-row>
     </v-container>
 
-    <v-row class="d-flex justify-center">
+    <v-row class="d-flex justify-center" id="order-form">
       <v-col cols="12" md="10" lg="8">
-        <SignUpConsultation />
+        <SignUpConsultation></SignUpConsultation>
       </v-col>
     </v-row>
   </div>
 </template>
 <style scoped>
+:deep(a) {
+  text-decoration: underline !important;
+}
+
 .current-bg {
   background-color: red;
 }

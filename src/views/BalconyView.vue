@@ -61,7 +61,6 @@ const images = [
   '/images/balcony/services/GlazingBalconies.png',
   '/images/balcony/services/InteriorDecoration.jpg',
   '/images/balcony/services/AdditionalProducts.png',
-  '/images/balcony/services/InsulationBalconies.png',
   '/images/balcony/services/WoodClapboard.webp',
   '/images/balcony/services/PVCPanels.jpg',
 ]
@@ -79,7 +78,6 @@ const images = [
         </template>
       </BlockImage>
     </v-container>
-    <p class="header-advantages">работаем <span style="color: #e52e2a">C 2004 года</span></p>
     <v-container class="block-advantages">
       <Advantage v-for="advantage in advantages" :key="advantage.name" :icon="advantage.icon" :name="advantage.name"
         :text="advantage.text">

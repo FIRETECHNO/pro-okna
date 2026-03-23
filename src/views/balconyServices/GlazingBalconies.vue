@@ -18,11 +18,8 @@ import BackButton from '@/components/BackButton.vue'
           </p>
           <v-row class="image-text-row">
             <v-col cols="12" xl="5" class="image-col">
-              <img
-                src="/images/balcony/services/GlazingBalconies.png"
-                alt="Тёплое остекление балкона"
-                class="content-image"
-              />
+              <img src="/images/balcony/services/GlazingBalconies.png" alt="Тёплое остекление балкона"
+                class="content-image" />
             </v-col>
             <v-col cols="12" md="" xl="7">
               <v-row>
@@ -77,11 +74,8 @@ import BackButton from '@/components/BackButton.vue'
           </p>
           <v-row class="image-text-row">
             <v-col cols="12" xl="5" class="image-col">
-              <img
-                src="/images/balcony/services/GlazingBalconies.png"
-                alt="Холодное остекление балкона"
-                class="content-image"
-              />
+              <img src="/images/balcony/services/GlazingBalconies.png" alt="Холодное остекление балкона"
+                class="content-image" />
             </v-col>
             <v-col cols="12" md="" xl="7">
               <v-row>
@@ -112,10 +106,8 @@ import BackButton from '@/components/BackButton.vue'
           </v-row>
 
           <blockquote class="note">
-            <b>Недостатки:</b> Температура на лоджии в мороз будет мало отличаться от температуры на
-            улице. Зимой, при открывании створок, запотевшие стекла быстро леденеют. В
-            Санкт-Петербурге из-за высокой влажности воздуха в холодное время года подобное явление
-            не редкость.
+            <b>Недостатки:</b> Температура на балконе в мороз будет мало отличаться от температуры на
+            улице. Зимой, при открывании створок, запотевшие стекла быстро леденеют.
           </blockquote>
 
           <p class="quote">

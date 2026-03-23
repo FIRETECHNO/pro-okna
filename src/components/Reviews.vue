@@ -1,6 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+const reviewsScroll = ref<HTMLElement | null>(null)
+
+const scrollReviews = (direction: 'left' | 'right') => {
+  if (reviewsScroll.value) {
+    const scrollAmount = 370
+    reviewsScroll.value.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    })
+  }
+}
+
 const reviews = ref([
   {
     id: 1,
@@ -57,21 +69,31 @@ const reviews = ref([
 <template>
   <v-container class="reviews-container">
     <h2 class="reviews-header">отзывы клиентов</h2>
-    <div class="reviews-scroll">
-      <div v-for="review in reviews" :key="review.id" class="review-card">
-        <div class="review-header">
-          <div class="review-avatar">
-            {{ review.name.charAt(0) }}
+    <div class="reviews-wrapper">
+      <div ref="reviewsScroll" class="reviews-scroll">
+        <div v-for="review in reviews" :key="review.id" class="review-card">
+          <div class="review-header">
+            <div class="review-avatar">
+              {{ review.name.charAt(0) }}
+            </div>
+            <div class="review-info">
+              <h3 class="review-name">{{ review.name }}</h3>
+              <p class="review-date">{{ review.date }}</p>
+            </div>
           </div>
-          <div class="review-info">
-            <h3 class="review-name">{{ review.name }}</h3>
-            <p class="review-date">{{ review.date }}</p>
+          <div class="review-rating">
+            <v-icon v-for="n in 5" :key="n" color="#e52e2a" size="18"> mdi-star </v-icon>
           </div>
+          <p class="review-text">{{ review.text }}</p>
         </div>
-        <div class="review-rating">
-          <v-icon v-for="n in 5" :key="n" color="#e52e2a" size="18"> mdi-star </v-icon>
-        </div>
-        <p class="review-text">{{ review.text }}</p>
+      </div>
+      <div class="reviews-nav-buttons">
+        <button class="reviews-nav-btn" @click="scrollReviews('left')">
+          <v-icon size="24">mdi-chevron-left</v-icon>
+        </button>
+        <button class="reviews-nav-btn" @click="scrollReviews('right')">
+          <v-icon size="24">mdi-chevron-right</v-icon>
+        </button>
       </div>
     </div>
   </v-container>
@@ -203,6 +225,37 @@ const reviews = ref([
   line-height: 1.6;
   color: #424242;
   margin: 0;
+}
+
+.reviews-wrapper {
+  position: relative;
+}
+
+.reviews-nav-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+  padding-right: 12px;
+}
+
+.reviews-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(2.5rem, 1.5057rem + 2.8409vw, 3.75rem);
+  height: clamp(2.5rem, 1.5057rem + 2.8409vw, 3.75rem);
+  background: rgba(217, 217, 217, 0.7);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: black;
+  transition: background 0.3s ease;
+}
+
+.reviews-nav-btn:hover {
+  background: rgba(229, 46, 42, 0.8);
+  color: white;
 }
 
 @media (max-width: 768px) {

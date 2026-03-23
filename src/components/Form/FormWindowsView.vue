@@ -171,8 +171,8 @@ onMounted(() => {
 .form-block-container {
   display: flex;
   justify-content: space-around;
-  padding-top: 5vh;
-  padding-bottom: 5vh;
+  padding-top: 10px;
+  padding-bottom: 10px;
   /* height: 100vh; */
   background-image: url('/images/FormBlock.jpg');
   background-color: rgba(0, 0, 0, 0.5);
@@ -185,7 +185,7 @@ onMounted(() => {
   font-size: 3vw;
   font-family: 'Montserrat Variable';
   font-weight: 600;
-  line-height: 150%;
+  line-height: 105%;
   color: white;
   padding-left: 20px;
   overflow-wrap: break-word;

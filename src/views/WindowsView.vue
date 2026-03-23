@@ -21,7 +21,7 @@ const advantages = [
   {
     icon: 'mdi-pin-outline',
     name: 'Рассрочка без переплат',
-    text: 'До 6 мес без процентов и банка.',
+    text: 'До 6 мес — без процентов — без банка',
   },
   {
     icon: 'mdi-shield-check-outline',
@@ -82,35 +82,17 @@ const images = [
         </template>
       </BlockImage>
     </v-container>
-    <p class="header-advantages">работаем <span style="color: #e52e2a">C 2004 года</span></p>
     <v-container class="block-advantages">
-      <Advantage
-        v-for="advantage in advantages"
-        :key="advantage.name"
-        :icon="advantage.icon"
-        :name="advantage.name"
-        :text="advantage.text"
-      >
+      <Advantage v-for="advantage in advantages" :key="advantage.name" :icon="advantage.icon" :name="advantage.name"
+        :text="advantage.text">
       </Advantage>
     </v-container>
     <p class="header-services">наши услуги</p>
     <v-container class="block-services">
       <v-row style="flex-wrap: nowrap; display: flex" class="justify-start">
-        <v-col
-          cols="8"
-          sm="5"
-          md="4"
-          lg="3"
-          v-for="service in services"
-          class="card-service ms-md-auto me-md-auto"
-        >
-          <CardService
-            :key="service.imageUrl"
-            :image-url="service.imageUrl"
-            :url="service.url"
-            :text-button="service.textButton"
-            :variants-service="service.variantsService"
-          >
+        <v-col cols="8" sm="5" md="4" lg="3" v-for="service in services" class="card-service ms-md-auto me-md-auto">
+          <CardService :key="service.imageUrl" :image-url="service.imageUrl" :url="service.url"
+            :text-button="service.textButton" :variants-service="service.variantsService">
           </CardService>
         </v-col>
       </v-row>
@@ -123,7 +105,7 @@ const images = [
     <v-container style="padding: 0px">
       <v-row style="width: 100%; display: flex; justify-content: center; margin: 0px">
         <v-col cols="12" md="10" lg="8" style="padding: 0">
-          <SignUpConsultation></SignUpConsultation>
+          <SignUpConsultation>Записаться на бесплатный замер</SignUpConsultation>
         </v-col>
       </v-row>
     </v-container>
