@@ -3,6 +3,13 @@ import { ref } from 'vue'
 
 const reviewsScroll = ref<HTMLElement | null>(null)
 
+const AVITO_URL =
+  'https://www.avito.ru/brands/i65942068?gdlkerfdnwq=101&page_from=from_item_header&iid=776800368&page_from=from_item_card&iid=776800368'
+
+const openAvito = () => {
+  window.open(AVITO_URL, '_blank')
+}
+
 const scrollReviews = (direction: 'left' | 'right') => {
   if (reviewsScroll.value) {
     const scrollAmount = 370
@@ -16,52 +23,94 @@ const scrollReviews = (direction: 'left' | 'right') => {
 const reviews = ref([
   {
     id: 1,
-    name: 'Александр Иванов',
-    text: 'Заказывал пластиковые окна в квартиру. Очень доволен качеством работы и скоростью монтажа. Ребята всё сделали аккуратно, убрали за собой мусор. Рекомендую!',
+    name: 'Виктория',
+    text: 'Заказывали балконую часть и окно на кухню. Все сделано качественно, чисто, с душой. Работой довольны, мусор весь собрали и увезли. Очень благодарны и рекомендуем. Редко встретишь добросовестных людей.',
     rating: 5,
-    date: '15.02.2026',
+    date: '21.03.2026',
   },
   {
     id: 2,
-    name: 'Елена Петрова',
-    text: 'Остекляли балкон. Сначала сомневались, но менеджер всё подробно объяснил, помог выбрать оптимальный вариант. Цена порадовала, качество на высоте. Спасибо!',
+    name: 'Каримова Виктория Сергеевна',
+    text: 'Ремонт окна сломался механизм. Все заменили и отрегулировали. Работа была сделана качественно.',
     rating: 5,
-    date: '28.01.2026',
+    date: '15.12.2025',
   },
   {
     id: 3,
-    name: 'Сергей Николаев',
-    text: 'Второй раз обращаемся в эту компанию. Первый раз заказывали окна в квартиру, теперь — в загородный дом. Всё чётко, без задержек. Мастера профессионалы!',
+    name: 'Дарья',
+    text: 'Работы выполнены качественно и в срок.',
     rating: 5,
-    date: '10.01.2026',
+    date: '11.12.2025',
   },
   {
     id: 4,
-    name: 'Мария Козлова',
-    text: 'Нужно было срочно заменить старое окно. Позвонила утром, вечером уже приехал замерщик, через неделю всё было установлено. Очень оперативно!',
+    name: 'ООО ЯЙВИНСКИЙ РЫБХОЗ',
+    text: 'Устанавливали подоконник, все сделали в срок и очень быстро ребята молодцы и по цене приемлемо.',
     rating: 5,
-    date: '22.12.2025',
+    date: '08.12.2025',
   },
   {
     id: 5,
-    name: 'Дмитрий Смирнов',
-    text: 'Заказывал окна в офис. Понравилось, что сделали точный замер, никаких переплат. Качество профиля отличное, звукоизоляция реально работает. Доволен выбором.',
+    name: 'Павел',
+    text: 'Отделка балкона. Замер договор подписали подождали изготовление потом договорились и в день все готово. Спасибо.',
     rating: 5,
-    date: '05.12.2025',
+    date: '19.11.2025',
   },
   {
     id: 6,
-    name: 'Наталья Волкова',
-    text: 'Остекляли веранду на даче. Работа выполнена качественно, ребята учли все наши пожелания. Теперь можно пользоваться верандой круглый год. Спасибо!',
+    name: 'Елена Отинова',
+    text: 'Работа выполнена в полном объеме и в срок. Ребята молодцы. Особенное спасибо Артёму и Анатолию.',
     rating: 5,
-    date: '18.11.2025',
+    date: '29.10.2025',
   },
   {
     id: 7,
-    name: 'Игорь Андреев',
-    text: 'Порадовала рассрочка без переплат! Оформили прямо на месте, никаких сложных процедур. Окна красивые, тёплые, никакого конденсата. Компании успехов!',
+    name: 'Запчасти Caterpillar, CTP, Komatsy, Volvo',
+    text: 'Нужно было заменить стекло в 2 стеклопакетах. Исполнитель на следующий день после обращения приехал, снял замеры и сказал, когда будет готово новое стекло. Точно в срок приехал, заменил. По стоимости все, как договаривались. Спасибо за качественную работу. Рекомендую.',
     rating: 5,
-    date: '02.11.2025',
+    date: '19.10.2025',
+  },
+  {
+    id: 8,
+    name: 'Ирина',
+    text: 'Работа выполнена качественно, советую всем.',
+    rating: 5,
+    date: '18.10.2025',
+  },
+  {
+    id: 9,
+    name: 'Лилия',
+    text: 'Работа выполнена быстро и качественно. Работой довольна',
+    rating: 5,
+    date: '10.10.2025',
+  },
+  {
+    id: 10,
+    name: 'Сергей',
+    text: 'Выполнили работу качественно, оперативно, рекомендую к сотрудничеству.',
+    rating: 5,
+    date: '03.10.2025',
+  },
+  {
+    id: 11,
+    name: 'Валерий',
+    text: 'Работы выполнены на высшем уровне, ребята молодцы!!!',
+    rating: 5,
+    date: '21.09.2025',
+  },
+  {
+    id: 12,
+    name: 'Олеся',
+    text: 'Приехали, все сделали качественно, быстро, ребята молодцы!!!',
+    rating: 5,
+    date: '01.09.2025',
+  },
+  {
+    id: 13,
+    name: 'Лариса',
+    text: 'Заказывала остекление балкона. Замечательные специалисты. К работе приступили вовремя, приезжали без опозданий, сделали все в оговоренные сроки и по договоренной стоимости.',
+    rating: 5,
+    date: '28.08.2025',
   },
 ])
 </script>
@@ -71,7 +120,13 @@ const reviews = ref([
     <h2 class="reviews-header">отзывы клиентов</h2>
     <div class="reviews-wrapper">
       <div ref="reviewsScroll" class="reviews-scroll">
-        <div v-for="review in reviews" :key="review.id" class="review-card">
+        <div
+          v-for="review in reviews"
+          :key="review.id"
+          class="review-card"
+          @click="openAvito"
+          style="cursor: pointer"
+        >
           <div class="review-header">
             <div class="review-avatar">
               {{ review.name.charAt(0) }}
@@ -123,6 +178,15 @@ const reviews = ref([
   scroll-behavior: smooth;
 }
 
+.reviews-scroll {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 20px;
+  padding: 0 12px 12px 12px;
+  scroll-behavior: smooth;
+}
+
 .reviews-scroll::-webkit-scrollbar {
   height: 8px;
 }
@@ -130,11 +194,22 @@ const reviews = ref([
 .reviews-scroll::-webkit-scrollbar-track {
   background: #e0e0e0;
   border-radius: 4px;
+  margin-bottom: 12px;
 }
 
 .reviews-scroll::-webkit-scrollbar-thumb {
   background: #e52e2a;
   border-radius: 4px;
+}
+
+.reviews-nav-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+  padding-right: 12px;
+  position: relative;
+  z-index: 10;
 }
 
 .review-card {
@@ -154,18 +229,6 @@ const reviews = ref([
   flex: 0 0 350px;
   padding: 12px;
   display: flex;
-}
-
-.review-card {
-  background: #f5f5f5;
-  border-radius: 16px;
-  padding: 24px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
 }
 
 .review-card:hover {
@@ -225,6 +288,10 @@ const reviews = ref([
   line-height: 1.6;
   color: #424242;
   margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .reviews-wrapper {

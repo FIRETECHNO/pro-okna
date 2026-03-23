@@ -63,6 +63,9 @@ const images = [
   '/images/balcony/services/AdditionalProducts.png',
   '/images/balcony/services/WoodClapboard.webp',
   '/images/balcony/services/PVCPanels.jpg',
+  '/images/views/our-products/3.jpg',
+  '/images/views/services/CustomWindows.jpg',
+  '/images/views/services/InstallationWindows.webp',
 ]
 </script>
 <template>
