@@ -125,10 +125,10 @@ onMounted(() => {
 <template>
   <v-container style="max-width: 100% !important; padding: 0px">
     <v-row class="form-block-container">
-      <v-col cols="12">
+      <v-col cols="10">
         <p class="text-by-form">Оставьте заявку — мы перезвоним в течение 15 минут</p>
       </v-col>
-      <v-col cols="0" md="6" style="height: 0; padding: 0"> </v-col>
+      <v-col cols="0" md="5" style="height: 0; padding: 0"> </v-col>
       <v-col cols="12" sm="8" md="4" class="form-container">
         <v-form @submit="onSubmitRequest" class="form-windows">
           <input class="text-input-container" type="login" name="login" v-model="login.value.value" placeholder="ФИО *"
@@ -182,7 +182,7 @@ onMounted(() => {
 }
 
 .text-by-form {
-  font-size: 3vw;
+  font-size: 2vw;
   font-family: 'Montserrat Variable';
   font-weight: 600;
   line-height: 105%;
@@ -205,11 +205,11 @@ onMounted(() => {
   border-radius: 14px;
   font-family: 'Montserrat Variable';
   font-weight: 300;
-  font-size: clamp(12px, 1.5vw, 3vw);
-  margin-top: 10px;
-  padding-left: 20px;
+  font-size: clamp(12px, 1.3vw, 14px);
+  margin-top: 8px;
+  padding-left: 16px;
   width: 100%;
-  height: 70px;
+  height: 52px;
 }
 
 .comment-input {
@@ -285,7 +285,7 @@ onMounted(() => {
 
 @media (max-width: 768px) {
   .text-input-container {
-    height: 50px;
+    height: 42px;
   }
 
   .comment-input {
