@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue"
+import { computed } from 'vue'
 import { useDisplay } from 'vuetify'
 
 const { mdAndUp } = useDisplay()
@@ -43,16 +43,16 @@ let { icon, name, text } = props
 }
 
 .advantage-name {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
   font-family: 'Montserrat Variable';
   line-height: 100%;
 }
 
 .advantage-text {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
-  padding-top: 10px;
+  padding-top: 8px;
   font-family: 'Montserrat Variable';
 }
 
@@ -72,7 +72,7 @@ let { icon, name, text } = props
   }
 
   .advantage-text {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .container-advantage {

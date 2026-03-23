@@ -14,14 +14,26 @@ const emits = defineEmits(['scroll-to-form'])
 const imageList = props.urlImages
 </script>
 <template>
-  <v-container style="max-width: 100% !important; padding: 0px; margin-top: 100px" class="our-products-container">
+  <v-container
+    style="max-width: 100% !important; padding: 0px; margin-top: 100px"
+    class="our-products-container"
+  >
     <p class="text-our-products">Наши работы</p>
 
-    <Swiper style="width: 100%" :modules="[Navigation]" :slides-per-view="1" :space-between="20" :centered-slides="true"
-      :loop="true" :breakpoints="{
-        960: { slidesPerView: 3 },
-        600: { slidesPerView: 2 },
-      }" navigation>
+    <Swiper
+      style="width: 100%"
+      :modules="[Navigation]"
+      :slides-per-view="1.5"
+      :space-between="15"
+      :centered-slides="true"
+      :loop="true"
+      :breakpoints="{
+        1200: { slidesPerView: 4, spaceBetween: 15 },
+        768: { slidesPerView: 3, spaceBetween: 15 },
+        580: { slidesPerView: 2, spaceBetween: 15 },
+      }"
+      navigation
+    >
       <SwiperSlide v-for="image in imageList">
         <img :src="image" class="img-slide" alt="" />
       </SwiperSlide>
@@ -70,10 +82,10 @@ const imageList = props.urlImages
 
 .img-slide {
   width: 90%;
-  height: 40vh;
+  aspect-ratio: 1 / 1;
   background-position: center;
   user-select: none;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .button-our-products {
@@ -82,27 +94,9 @@ const imageList = props.urlImages
   justify-content: center;
 }
 
-@media (max-width: 1080px) {
-  .img-slide {
-    height: 35vh;
-  }
-}
-
-@media (max-width: 960px) {
-  .img-slide {
-    height: 35vh;
-  }
-}
-
 @media (max-width: 768px) {
   .img-slide {
-    height: 30vh;
-  }
-}
-
-@media (max-width: 580px) {
-  .img-slide {
-    height: 25vh;
+    width: 85%;
   }
 }
 </style>

@@ -127,6 +127,7 @@ const images = [
   display: flex;
   padding: 6px 8px 0px 8px;
   justify-items: space-between;
+  margin-top: 10px;
 }
 
 .header-services {
