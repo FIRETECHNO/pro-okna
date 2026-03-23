@@ -1,79 +1,73 @@
 <script setup lang="ts"></script>
 <template>
-  <v-container>
-    <p class="header-our-products">Наши услуги</p>
-    <a href="#order-form">
-      <v-row style="margin-top: 60px;" class="d-flex">
-        <v-col cols="12" md="3" sm="6">
-          <div class="card-container-service">
-            <p>Регулировка пластиковых окон и дверей</p>
-            <img class="card-img card-img-7" src="/images/windows-repair/services/WindowAdjusting.webp" alt="" />
-          </div>
-        </v-col>
-        <v-col cols="12" md="3" sm="6">
-          <div class="card-container-service">
+  <v-row class="d-flex justify-center">
+    <v-col cols="12">
+      <p class="header-our-products">Наши услуги</p>
 
-            <p>Замена уплотнителей</p>
-            <img class="card-img card-img-2" src="/images/windows-repair/services/Seals.webp" alt="" />
-          </div>
-        </v-col>
-        <v-col cols="12" md="3" sm="6">
-          <div class="card-container-service">
+      <a href="#order-form">
+        <v-row style="margin-top: 10px" class="d-flex">
+          <v-col cols="12" md="3" sm="6">
+            <div class="card-container-service">
+              <p>Регулировка пластиковых окон и дверей</p>
+              <img class="card-img card-img-7" src="/images/windows-repair/services/WindowAdjusting.webp" alt="" />
+            </div>
+          </v-col>
+          <v-col cols="12" md="3" sm="6">
+            <div class="card-container-service">
+              <p>Замена уплотнителей</p>
+              <img class="card-img card-img-2" src="/images/windows-repair/services/Seals.webp" alt="" />
+            </div>
+          </v-col>
+          <v-col cols="12" md="3" sm="6">
+            <div class="card-container-service">
+              <p>Ремонт и замена фурнитуры</p>
+              <img class="card-img card-img-5" src="/images/windows-repair/services/Implements.png" alt="" />
+            </div>
+          </v-col>
 
-            <p>Ремонт и замена фурнитуры</p>
-            <img class="card-img card-img-5" src="/images/windows-repair/services/Implements.png" alt="" />
-          </div>
-        </v-col>
+          <v-col cols="12" md="3" sm="6">
+            <div class="card-container-service">
+              <p>Замена стеклопакета</p>
+              <img class="card-img card-img-3" src="/images/windows-repair/services/DoubleGlazing.png" alt="" />
+            </div>
+          </v-col>
+          <v-col cols="12" md="3" sm="6">
+            <div class="card-container-service">
+              <p>Модернизация пластиковых окон и балконных дверей</p>
+              <img class="card-img card-img-4" src="/images/windows-repair/services/BalconyDoor.png" alt="" />
+            </div>
+          </v-col>
 
+          <v-col cols="12" md="3" sm="6">
+            <div class="card-container-service">
+              <p>Москитные сетки</p>
+              <img class="card-img card-img-6" src="/images/windows-repair/services/Grid.png" alt="" />
+            </div>
+          </v-col>
 
-        <v-col cols="12" md="3" sm="6">
-          <div class="card-container-service">
+          <v-col cols="12" md="3" sm="6">
+            <div class="card-container-service">
+              <p>Замена и установка подоконников</p>
+              <img class="card-img card-img-1" src="/images/windows-repair/services/Windowsill.png" alt="" />
+            </div>
+          </v-col>
 
-            <p>Замена стеклопакета</p>
-            <img class="card-img card-img-3" src="/images/windows-repair/services/DoubleGlazing.png" alt="" />
-          </div>
-        </v-col>
-        <v-col cols="12" md="3" sm="6">
-          <div class="card-container-service">
-
-            <p>Модернизация пластиковых окон и балконных дверей</p>
-            <img class="card-img card-img-4" src="/images/windows-repair/services/BalconyDoor.png" alt="" />
-          </div>
-        </v-col>
-
-        <v-col cols="12" md="3" sm="6">
-          <div class="card-container-service">
-
-            <p>Москитные сетки</p>
-            <img class="card-img card-img-6" src="/images/windows-repair/services/Grid.png" alt="" />
-          </div>
-        </v-col>
-
-        <v-col cols="12" md="3" sm="6">
-          <div class="card-container-service">
-
-            <p>Замена и установка подоконников</p>
-            <img class="card-img card-img-1" src="/images/windows-repair/services/Windowsill.png" alt="" />
-          </div>
-        </v-col>
-
-        <v-col cols="12" md="3" sm="6">
-          <div class="card-container-service">
-
-            <p>Отделка окон</p>
-            <img src="/images/windows-repair/services/WindowsFinishing.png" alt="" class="card-img card-img-8" />
-          </div>
-        </v-col>
-      </v-row>
-    </a>
-  </v-container>
+          <v-col cols="12" md="3" sm="6">
+            <div class="card-container-service">
+              <p>Отделка окон</p>
+              <img src="/images/windows-repair/services/WindowsFinishing.png" alt="" class="card-img card-img-8" />
+            </div>
+          </v-col>
+        </v-row>
+      </a>
+    </v-col>
+  </v-row>
 </template>
 <style scoped>
 .header-our-products {
   font-size: 25px;
   font-family: 'Montserrat Variable';
   font-weight: 700;
-  line-height: 70%;
 }
 
 .card-container-service {
@@ -147,6 +141,10 @@
   bottom: -20px;
 }
 
+p {
+  z-index: 1000;
+}
+
 @media (max-width: 1285px) {
   .card-container-service {
     font-size: 15px;
@@ -163,7 +161,6 @@
 }
 
 @media (max-width: 1145px) {
-
   .card-img-4 {
     top: 100px;
     left: 70px;
@@ -184,8 +181,13 @@
   }
 }
 
-@media (max-width: 750px) {
+@media (min-width: 750px) and (max-width: 960px) {
+  .card-container-service {
+    max-height: 35vh;
+  }
+}
 
+@media (max-width: 750px) {
   .card-img-4 {
     top: 100px;
     left: 70px;
@@ -198,11 +200,9 @@
   .card-img-7 {
     top: 60px;
   }
-
 }
 
 @media (max-width: 600px) {
-
   .card-img-4 {
     top: 100px;
     left: 70px;
@@ -214,7 +214,6 @@
 }
 
 @media (max-width: 450px) {
-
   .card-img-4 {
     top: 100px;
     left: 70px;

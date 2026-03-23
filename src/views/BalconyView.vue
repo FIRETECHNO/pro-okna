@@ -71,7 +71,7 @@ const images = [
 <template>
   <div>
     <v-container class="block-image">
-      <BlockImage image-url="/images/balcony/BalconyBlockImage.png">
+      <BlockImage image-url="/images/balcony/BalconyBlockImage.jpg">
         <template #mainText>
           скидки<br />
           на балконы до
