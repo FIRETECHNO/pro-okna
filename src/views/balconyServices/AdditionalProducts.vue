@@ -36,7 +36,7 @@ import BackButton from '@/components/BackButton.vue'
 
           <div class="image-text-row reverse">
             <div class="image-col">
-              <img src="/images/balcony/services/AdditionalProducts.png" alt="Сушилки для белья"
+              <img src="/images/balcony/services/AdditionalProducts2.jpg" alt="Сушилки для белья"
                 class="content-image" />
             </div>
             <div class="text-col">
