@@ -74,7 +74,7 @@ const images = [
       <BlockImage image-url="/images/balcony/BalconyBlockImage.jpg">
         <template #mainText>
           скидки<br />
-          на балконы до
+          на балконы
         </template>
         <template #discount>
           <p style="color: #e52e2a">40%</p>

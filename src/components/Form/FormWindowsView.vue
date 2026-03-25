@@ -74,7 +74,7 @@ async function submitForm(values: any) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        title: 'Новая заявка PRO ОКНА',
+        title: 'Новая заявка Стеклосервис',
         body: {
           Имя: values.login,
           Телефон: values.phone,

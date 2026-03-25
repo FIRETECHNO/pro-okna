@@ -7,7 +7,7 @@ import fs from 'fs-extra';
 import path from 'path';
 
 // === КОНФИГУРАЦИЯ ===
-const BUCKET_NAME = 'pro-okna59.ru';
+const BUCKET_NAME = 'stekloservis-perm.ru';
 const BUILD_DIR = './dist'; // или './build' — укажите вашу папку сборки
 const REGION = 'ru-central1';
 const ENDPOINT = 'https://storage.yandexcloud.net';

@@ -69,6 +69,7 @@ const steps = [
 <style scoped>
 :deep(a) {
   text-decoration: underline !important;
+  color: red;
 }
 
 .current-bg {

@@ -17,8 +17,11 @@ import BackButton from '@/components/BackButton.vue'
           </p>
           <v-row class="image-text-row">
             <v-col cols="12" sm="6" md="5" xl="5" class="image-col">
-              <img src="/images/balcony/services/CoolGlazing.webp" alt="Холодное остекление балкона"
-                class="content-image" />
+              <img
+                src="/images/balcony/services/CoolGlazing.webp"
+                alt="Холодное остекление балкона"
+                class="content-image"
+              />
             </v-col>
             <v-col cols="12" sm="6" md="7" xl="7">
               <v-row>
@@ -49,8 +52,8 @@ import BackButton from '@/components/BackButton.vue'
           </v-row>
 
           <blockquote class="note">
-            <b>Недостатки:</b> Температура на балконе в мороз будет мало отличаться от температуры на
-            улице. Зимой, при открывании створок, запотевшие стекла быстро леденеют.
+            <b>Недостатки:</b> Температура на балконе в мороз будет мало отличаться от температуры
+            на улице. Зимой, при открывании створок, запотевшие стекла быстро леденеют.
           </blockquote>
 
           <p class="quote">
@@ -70,8 +73,11 @@ import BackButton from '@/components/BackButton.vue'
           </p>
           <v-row class="image-text-row">
             <v-col cols="12" sm="6" md="5" xl="5" class="image-col">
-              <img src="/images/balcony/services/GlazingBalconies.png" alt="Тёплое остекление балкона"
-                class="content-image" />
+              <img
+                src="/images/balcony/services/GlazingBalconies.png"
+                alt="Тёплое остекление балкона"
+                class="content-image"
+              />
             </v-col>
             <v-col cols="12" sm="6" md="7" xl="7">
               <v-row>
@@ -115,8 +121,6 @@ import BackButton from '@/components/BackButton.vue'
             Расходы на теплые оконные системы оправданы: вы получаете долговечное и практичное
             остекление, которое прослужит дольше, чем алюминиевый профиль.
           </p>
-
-
         </v-col>
       </v-row>
     </v-container>
@@ -157,7 +161,7 @@ h2 {
 }
 
 p {
-  font-size: clamp(1rem, 0.7rem + 1vw, 1.25rem);
+  font-size: clamp(0.8rem, 0.5rem + 1vw, 1rem);
   line-height: 1.6;
 }
 </style>

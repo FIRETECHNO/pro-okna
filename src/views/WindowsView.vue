@@ -75,7 +75,7 @@ const images = [
       <BlockImage image-url="/images/views/WindowsBlockImage.jpg">
         <template #mainText>
           скидки<br />
-          на окна до
+          на окна
         </template>
         <template #discount>
           <p style="color: #e52e2a">40%</p>

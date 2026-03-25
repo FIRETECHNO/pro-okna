@@ -54,8 +54,7 @@ let mdAndUp = computed(() => display.mdAndUp)
         </v-col>
         <v-col cols="6" md="3" style="font-weight: 400 !important;" class="d-flex justify-end">2004-{{ new
           Date().getFullYear()
-          }} © Про
-          окна</v-col>
+        }} © Стеклосервис</v-col>
       </v-row>
 
       <!-- <v-row class="flex justify-between">

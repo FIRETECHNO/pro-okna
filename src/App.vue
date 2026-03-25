@@ -20,7 +20,7 @@ let navBtns = ref([
     name: 'Окна',
     url: '/',
     isActive: false,
-    title: 'Пластиковые окна в Перми | Продажа и установка | PRO ОКНА',
+    title: 'Пластиковые окна в Перми | Продажа и установка | Стеклосервис',
     description:
       'Качественные пластиковые окна по лучшим ценам в Перми. Собственное производство, бесплатный замер, гарантия до 5 лет. Звоните: +7 (950) 473-91-17',
   },
@@ -28,7 +28,7 @@ let navBtns = ref([
     name: 'Балконы',
     url: '/balcony',
     isActive: false,
-    title: 'Остекление балконов в Перми | Балконы под ключ | PRO ОКНА',
+    title: 'Остекление балконов в Перми | Балконы под ключ | Стеклосервис',
     description:
       'Остекление балконов и лоджий в Перми. Отделка, утепление, балконы под ключ. Собственное производство, бесплатный замер.',
   },
@@ -36,7 +36,7 @@ let navBtns = ref([
     name: 'Ремонт окон',
     url: '/windows-repair',
     isActive: false,
-    title: 'Ремонт пластиковых окон в Перми | PRO ОКНА',
+    title: 'Ремонт пластиковых окон в Перми | Стеклосервис',
     description:
       'Профессиональный ремонт пластиковых окон в Перми. Регулировка, замена уплотнителей, фурнитуры, стеклопакетов. Быстро и качественно.',
   },
@@ -44,7 +44,7 @@ let navBtns = ref([
     name: 'Рассрочка',
     url: '/payment',
     isActive: false,
-    title: 'Рассрочка без переплат | PRO ОКНА',
+    title: 'Рассрочка без переплат | Стеклосервис',
     description:
       'Рассрочка до 6 месяцев без процентов и банка. Оформление на месте, минимум документов. Акция на окна со скидкой до 40%.',
   },
@@ -58,32 +58,32 @@ const activePage = computed(() => navBtns.value.find((btn) => btn.url === route.
 // SEO для всех страниц
 const seoData: Record<string, { title: string; description: string }> = {
   '/custom-windows': {
-    title: 'Окна на заказ в Перми | Изготовление по размерам | PRO ОКНА',
+    title: 'Окна на заказ в Перми | Изготовление по размерам | Стеклосервис',
     description:
       'Окна на заказ в Перми. Изготовление по вашим размерам за 3-5 дней. Собственное производство, бесплатный замер, гарантия.',
   },
   '/installation-windows': {
-    title: 'Окна под ключ в Перми | Установка с монтажом | PRO ОКНА',
+    title: 'Окна под ключ в Перми | Установка с монтажом | Стеклосервис',
     description:
       'Окна под ключ в Перми. Установка с монтажом, доставка. Профессиональный монтаж, гарантия 5 лет. Звоните: +7 (950) 473-91-17.',
   },
   '/glazing': {
-    title: 'Остекление веранд и беседок в Перми | PRO ОКНА',
+    title: 'Остекление веранд и беседок в Перми | Стеклосервис',
     description:
       'Остекление веранд, беседок, террас в Перми. Качественное остекление, доступные цены. Бесплатный замер.',
   },
   '/additional-products': {
-    title: 'Дополнительные товары для окон и балконов | PRO ОКНА',
+    title: 'Дополнительные товары для окон и балконов | Стеклосервис',
     description:
       'Москитные сетки, подоконники, откосы и другие комплектующие для окон. Высокое качество, доступные цены.',
   },
   '/glazing-balconies': {
-    title: 'Остекление балконов в Перми | PRO ОКНА',
+    title: 'Остекление балконов в Перми | Стеклосервис',
     description:
       'Профессиональное остекление балконов в Перми. Пластиковое и алюминиевое остекление, отделка под ключ.',
   },
   '/interior-decoration': {
-    title: 'Отделка балконов внутри в Перми | PRO ОКНА',
+    title: 'Отделка балконов внутри в Перми | Стеклосервис',
     description:
       'Внутренняя отделка балконов: ПВХ-панели, деревянная вагонка. Качественные материалы, профессиональный монтаж.',
   },
@@ -91,7 +91,9 @@ const seoData: Record<string, { title: string; description: string }> = {
 
 const getSeoTitle = () => {
   return (
-    seoData[route.path]?.title || activePage.value?.title || 'PRO ОКНА — Пластиковые окна в Перми'
+    seoData[route.path]?.title ||
+    activePage.value?.title ||
+    'Стеклосервис — Пластиковые окна в Перми'
   )
 }
 
@@ -115,14 +117,14 @@ useHead(
       { name: 'robots', content: 'index, follow' },
       { property: 'og:title', content: getSeoTitle() },
       { property: 'og:description', content: getSeoDescription() },
-      { property: 'og:image', content: 'https://pro-okna59.ru/og-image.png' },
-      { property: 'og:url', content: `https://pro-okna59.ru${route.path}` },
+      { property: 'og:image', content: 'https://stekloservis-perm.ru/og-image.png' },
+      { property: 'og:url', content: `https://stekloservis-perm.ru${route.path}` },
       { property: 'og:type', content: 'website' },
-      { property: 'og:site_name', content: 'PRO ОКНА' },
+      { property: 'og:site_name', content: 'Стеклосервис' },
       { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:image', content: 'https://pro-okna59.ru/og-image.png' },
+      { name: 'twitter:image', content: 'https://stekloservis-perm.ru/og-image.png' },
     ],
-    link: [{ rel: 'canonical', href: `https://pro-okna59.ru${route.path}` }],
+    link: [{ rel: 'canonical', href: `https://stekloservis-perm.ru${route.path}` }],
   })),
 )
 
@@ -147,10 +149,14 @@ watch(() => route.path, updateActiveBtns)
           <v-row class="flex justify-between">
             <v-col class="flex justify-start" cols="auto">
               <a href="/">
-                <img src="/icons/logo-old-variant.png" style="height: 50px" :draggable="false" />
+                <img
+                  src="/icons/logo-old-variant.png"
+                  style="height: 50px; margin-right: 10px"
+                  :draggable="false"
+                />
               </a>
               <div class="flex flex-col justify-center">
-                <a href="tel:+7(950)473-91-17" class="underline"> Заказать звонок </a>
+                <a href="tel:+7(950)473-91-17" class="underline"> Позвонить </a>
                 <a href="tel:+7(950)473-91-17" class="font-bold no-underline">
                   <v-icon size="20">mdi-phone</v-icon>
                   +7 (950) 473-91-17
