@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useForm, useField } from 'vee-validate'
-import { ref, onMounted } from 'vue'
+import { ref, watch, nextTick } from 'vue'
 import * as yup from 'yup'
 
 let request = ref({
@@ -39,11 +39,11 @@ email.value.value = request.value.email
 comment.value.value = request.value.comment
 
 let captchaToken = ''
+let showCaptchaDialog = ref(false)
+let pendingFormValues = ref<any>(null)
 
 async function checkToken(): Promise<boolean> {
   try {
-    console.log(captchaToken)
-
     let res = await fetch('https://functions.yandexcloud.net/d4e1o2dt1n15ah338ais', {
       method: 'POST',
       headers: {
@@ -62,7 +62,7 @@ async function checkToken(): Promise<boolean> {
   }
 }
 
-async function onSuccess(values: any) {
+async function submitForm(values: any) {
   try {
     let isTokenValid = await checkToken()
     if (!isTokenValid) return
@@ -74,7 +74,6 @@ async function onSuccess(values: any) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        // to: "mymail@mail.ru",
         title: 'Новая заявка PRO ОКНА',
         body: {
           Имя: values.login,
@@ -85,7 +84,6 @@ async function onSuccess(values: any) {
         apiKey: import.meta.env.VITE_EMAIL_API_TOKEN,
       }),
     })
-    let body = await response.json()
 
     if (response.status == 200) result.value = 'Ваша заявка отправлена'
   } catch (error) {
@@ -96,30 +94,67 @@ async function onSuccess(values: any) {
 function onInvalid(error: any) {
   result.value = 'Форма заявки заполнена неверно'
 }
+
+function onSuccess(values: any) {
+  pendingFormValues.value = values
+  showCaptchaDialog.value = true
+}
+
 const onSubmitRequest = handleSubmitRequest(onSuccess, onInvalid)
+
+function onCaptchaSuccess(token: string) {
+  captchaToken = token
+  showCaptchaDialog.value = false
+  if (pendingFormValues.value) {
+    submitForm(pendingFormValues.value)
+  }
+}
+
+function onCaptchaClose() {
+  showCaptchaDialog.value = false
+  captchaToken = ''
+}
 
 declare global {
   interface Window {
     smartCaptcha: any
+    loadCaptchaScript: boolean
   }
 }
 
-onMounted(() => {
-  const script = document.createElement('script')
-  script.src = 'https://smartcaptcha.yandexcloud.net/captcha.js'
-  script.defer = true
+function loadCaptchaScript(): Promise<void> {
+  return new Promise((resolve) => {
+    if (window.loadCaptchaScript) {
+      resolve()
+      return
+    }
+    const script = document.createElement('script')
+    script.src = 'https://smartcaptcha.yandexcloud.net/captcha.js'
+    script.defer = true
+    script.onload = () => {
+      window.loadCaptchaScript = true
+      resolve()
+    }
+    document.head.appendChild(script)
+  })
+}
 
-  script.onload = () => {
-    window.smartCaptcha.render('captcha-container', {
-      sitekey: import.meta.env.VITE_SC_TOKEN,
-      callback: (token: string) => {
-        console.log('captcha token:', token)
-        captchaToken = token
-      },
-    })
+function renderCaptcha() {
+  nextTick(() => {
+    if (window.smartCaptcha) {
+      window.smartCaptcha.render('captcha-dialog-container', {
+        sitekey: import.meta.env.VITE_SC_TOKEN,
+        callback: onCaptchaSuccess,
+      })
+    }
+  })
+}
+
+watch(showCaptchaDialog, async (newVal) => {
+  if (newVal) {
+    await loadCaptchaScript()
+    renderCaptcha()
   }
-
-  document.head.appendChild(script)
 })
 </script>
 <template>
@@ -131,23 +166,52 @@ onMounted(() => {
       <v-col cols="0" md="5" style="height: 0; padding: 0"> </v-col>
       <v-col cols="12" sm="8" md="4" class="form-container">
         <v-form @submit="onSubmitRequest" class="form-windows">
-          <input class="text-input-container" type="login" name="login" v-model="login.value.value" placeholder="ФИО *"
-            required />
-          <input class="text-input-container" type="phone" name="phone" v-model="phone.value.value"
-            placeholder="Телефон *" required />
-          <input class="text-input-container" type="email" name="email" v-model="email.value.value"
-            placeholder="Почта *" required />
-          <input class="text-input-container comment-input" placeholder="Комментарий" type="comment" name="comment"
-            v-model="comment.value.value" />
-          <div style="height: 100px" id="captcha-container" class="smart-captcha"
-            data-sitekey="ysc1_A8A6utxbx5AKfmsemexgT466KnOJY5tlD4afLP7tf09e6631"></div>
+          <input
+            class="text-input-container"
+            type="login"
+            name="login"
+            v-model="login.value.value"
+            placeholder="ФИО *"
+            required
+          />
+          <input
+            class="text-input-container"
+            type="phone"
+            name="phone"
+            v-model="phone.value.value"
+            placeholder="Телефон *"
+            required
+          />
+          <input
+            class="text-input-container"
+            type="email"
+            name="email"
+            v-model="email.value.value"
+            placeholder="Почта *"
+            required
+          />
+          <input
+            class="text-input-container comment-input"
+            placeholder="Комментарий"
+            type="comment"
+            name="comment"
+            v-model="comment.value.value"
+          />
           <div style="color: white">
-            <v-checkbox v-model="consent.value.value" :error-messages="consent.errorMessage.value" hide-details="auto"
-              required>
+            <v-checkbox
+              v-model="consent.value.value"
+              :error-messages="consent.errorMessage.value"
+              hide-details="auto"
+              required
+            >
               <template #label>
                 <span>
                   Даю согласие на&nbsp;
-                  <a class="agreement-highlight" href="/personal-data-agreement.pdf" target="_blank">
+                  <a
+                    class="agreement-highlight"
+                    href="/personal-data-agreement.pdf"
+                    target="_blank"
+                  >
                     обработку персональных данных
                   </a>
                 </span>
@@ -159,6 +223,18 @@ onMounted(() => {
         </v-form>
       </v-col>
     </v-row>
+
+    <v-dialog v-model="showCaptchaDialog" max-width="400" persistent>
+      <v-card class="captcha-dialog-card">
+        <v-card-title class="captcha-dialog-title">Подтвердите, что вы не робот</v-card-title>
+        <v-card-text>
+          <div id="captcha-dialog-container" class="smart-captcha"></div>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn color="grey" variant="text" @click="onCaptchaClose">Отмена</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 <style scoped>
@@ -303,5 +379,22 @@ onMounted(() => {
   }
 }
 
-@media (max-width: 500px) {}
+@media (max-width: 500px) {
+}
+
+.captcha-dialog-card {
+  background-color: white !important;
+  border-radius: 16px !important;
+}
+
+.captcha-dialog-title {
+  color: rgba(55, 55, 55, 1) !important;
+  font-family: 'Montserrat Variable';
+  text-align: center;
+}
+
+#captcha-dialog-container {
+  display: flex;
+  justify-content: center;
+}
 </style>

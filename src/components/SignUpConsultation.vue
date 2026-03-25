@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import MyAccentButton from './MyAccentButton.vue'
 import { useForm, useField } from 'vee-validate'
-import { ref, computed } from 'vue'
+import { ref, watch, nextTick } from 'vue'
 import * as yup from 'yup'
 
 const request = ref({
@@ -11,6 +11,8 @@ const request = ref({
 })
 
 const result = ref('')
+const showCaptchaDialog = ref(false)
+const pendingFormValues = ref<any>(null)
 
 const schemaOfRequest = yup.object({
   login: yup.string().required('Укажите ФИО'),
@@ -32,7 +34,27 @@ const login = useField('login')
 const phone = useField('phone')
 const consent = useField('consent')
 
-async function onSuccess(values: any) {
+async function checkToken(token: string): Promise<boolean> {
+  try {
+    let res = await fetch('https://functions.yandexcloud.net/d4e1o2dt1n15ah338ais', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        token: token,
+      }),
+    })
+    if (res.status == 200) {
+      return true
+    }
+    return false
+  } catch (error) {
+    return false
+  }
+}
+
+async function submitForm(values: any) {
   try {
     let response = await fetch('https://api.formtomail.ru/send', {
       method: 'POST',
@@ -41,7 +63,6 @@ async function onSuccess(values: any) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        // to: "mymail@mail.ru",
         title: 'Новая заявка PRO ОКНА',
         body: {
           Имя: values.login,
@@ -50,7 +71,6 @@ async function onSuccess(values: any) {
         apiKey: import.meta.env.VITE_EMAIL_API_TOKEN,
       }),
     })
-    let body = await response.json()
 
     if (response.status == 200) result.value = 'Ваша заявка отправлена'
   } catch (error) {
@@ -62,7 +82,69 @@ function onInvalid() {
   result.value = 'Проверьте правильность заполнения формы'
 }
 
+function onSuccess(values: any) {
+  pendingFormValues.value = values
+  showCaptchaDialog.value = true
+}
+
 const onSubmitRequest = handleSubmit(onSuccess, onInvalid)
+
+function onCaptchaSuccess(token: string) {
+  checkToken(token).then((isValid) => {
+    if (isValid) {
+      showCaptchaDialog.value = false
+      if (pendingFormValues.value) {
+        submitForm(pendingFormValues.value)
+      }
+    }
+  })
+}
+
+function onCaptchaClose() {
+  showCaptchaDialog.value = false
+}
+
+declare global {
+  interface Window {
+    smartCaptcha: any
+    loadCaptchaScript: boolean
+  }
+}
+
+function loadCaptchaScript(): Promise<void> {
+  return new Promise((resolve) => {
+    if (window.loadCaptchaScript) {
+      resolve()
+      return
+    }
+    const script = document.createElement('script')
+    script.src = 'https://smartcaptcha.yandexcloud.net/captcha.js'
+    script.defer = true
+    script.onload = () => {
+      window.loadCaptchaScript = true
+      resolve()
+    }
+    document.head.appendChild(script)
+  })
+}
+
+function renderCaptcha() {
+  nextTick(() => {
+    if (window.smartCaptcha) {
+      window.smartCaptcha.render('captcha-dialog-container-consult', {
+        sitekey: import.meta.env.VITE_SC_TOKEN,
+        callback: onCaptchaSuccess,
+      })
+    }
+  })
+}
+
+watch(showCaptchaDialog, async (newVal) => {
+  if (newVal) {
+    await loadCaptchaScript()
+    renderCaptcha()
+  }
+})
 </script>
 <template>
   <v-container class="consultation-container">
@@ -144,6 +226,18 @@ const onSubmitRequest = handleSubmit(onSuccess, onInvalid)
         </v-form>
       </v-col>
     </v-row>
+
+    <v-dialog v-model="showCaptchaDialog" max-width="400" persistent>
+      <v-card class="captcha-dialog-card">
+        <v-card-title class="captcha-dialog-title">Подтвердите, что вы не робот</v-card-title>
+        <v-card-text>
+          <div id="captcha-dialog-container-consult" class="smart-captcha"></div>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn color="grey" variant="text" @click="onCaptchaClose">Отмена</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 <style scoped>
@@ -264,5 +358,21 @@ const onSubmitRequest = handleSubmit(onSuccess, onInvalid)
     width: 90%;
     margin-left: 25px;
   }
+}
+
+.captcha-dialog-card {
+  background-color: white !important;
+  border-radius: 16px !important;
+}
+
+.captcha-dialog-title {
+  color: rgba(55, 55, 55, 1) !important;
+  font-family: 'Montserrat Variable';
+  text-align: center;
+}
+
+#captcha-dialog-container-consult {
+  display: flex;
+  justify-content: center;
 }
 </style>

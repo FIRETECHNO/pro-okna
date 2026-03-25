@@ -131,7 +131,9 @@ const images = [
   display: flex;
   padding: 6px 8px 0px 8px;
   justify-content: space-between;
-  margin-top: 10px;
+  align-items: center;
+  padding-top: 10px;
+  height: calc(100vh - 55vh - 157px)
 }
 
 .header-services {
