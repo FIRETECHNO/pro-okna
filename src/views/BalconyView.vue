@@ -114,7 +114,7 @@ const images = [
 .block-image {
   max-width: 100% !important;
   padding: 0px;
-  height: 55vh;
+  height: 50vh;
 }
 
 .header-advantages {
@@ -130,7 +130,9 @@ const images = [
   display: flex;
   padding: 6px 8px 0px 8px;
   justify-items: space-between;
-  margin-top: 10px;
+  align-items: center;
+  padding-top: 10px !important;
+  min-height: calc(100vh - 50vh - 157px)
 }
 
 .header-services {
