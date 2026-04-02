@@ -166,52 +166,21 @@ watch(showCaptchaDialog, async (newVal) => {
       <v-col cols="0" md="5" style="height: 0; padding: 0"> </v-col>
       <v-col cols="12" sm="8" md="4" class="form-container">
         <v-form @submit="onSubmitRequest" class="form-windows">
-          <input
-            class="text-input-container"
-            type="login"
-            name="login"
-            v-model="login.value.value"
-            placeholder="ФИО *"
-            required
-          />
-          <input
-            class="text-input-container"
-            type="phone"
-            name="phone"
-            v-model="phone.value.value"
-            placeholder="Телефон *"
-            required
-          />
-          <input
-            class="text-input-container"
-            type="email"
-            name="email"
-            v-model="email.value.value"
-            placeholder="Почта *"
-            required
-          />
-          <input
-            class="text-input-container comment-input"
-            placeholder="Комментарий"
-            type="comment"
-            name="comment"
-            v-model="comment.value.value"
-          />
+          <input class="text-input-container" type="login" name="login" v-model="login.value.value" placeholder="Имя *"
+            required />
+          <input class="text-input-container" type="phone" name="phone" v-model="phone.value.value"
+            placeholder="Телефон *" required />
+          <input class="text-input-container" type="email" name="email" v-model="email.value.value"
+            placeholder="Почта *" required />
+          <input class="text-input-container comment-input" placeholder="Комментарий" type="comment" name="comment"
+            v-model="comment.value.value" />
           <div style="color: white">
-            <v-checkbox
-              v-model="consent.value.value"
-              :error-messages="consent.errorMessage.value"
-              hide-details="auto"
-              required
-            >
+            <v-checkbox v-model="consent.value.value" :error-messages="consent.errorMessage.value" hide-details="auto"
+              required>
               <template #label>
                 <span>
                   Даю согласие на&nbsp;
-                  <a
-                    class="agreement-highlight"
-                    href="/personal-data-agreement.pdf"
-                    target="_blank"
-                  >
+                  <a class="agreement-highlight" href="/personal-data-agreement.pdf" target="_blank">
                     обработку персональных данных
                   </a>
                 </span>
@@ -379,8 +348,7 @@ watch(showCaptchaDialog, async (newVal) => {
   }
 }
 
-@media (max-width: 500px) {
-}
+@media (max-width: 500px) {}
 
 .captcha-dialog-card {
   background-color: white !important;
