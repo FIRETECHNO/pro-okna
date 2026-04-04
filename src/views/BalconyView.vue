@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import BlockImage from '@/components/BlockImage.vue'
 import Advantage from '@/components/Advantage.vue'
 import CardService from '@/components/CardService.vue'
@@ -6,6 +7,18 @@ import FormWindowsView from '@/components/Form/FormWindowsView.vue'
 import OurProducts from '@/components/OurProducts.vue'
 import SignUpConsultation from '@/components/SignUpConsultation.vue'
 import Reviews from '@/components/Reviews.vue'
+
+const servicesRef = ref<HTMLElement | null>(null)
+
+const scrollServices = (direction: 'left' | 'right') => {
+  if (servicesRef.value) {
+    const scrollAmount = 370
+    servicesRef.value.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth',
+    })
+  }
+}
 
 const advantages = [
   {
@@ -88,13 +101,23 @@ const images = [
     </v-container>
     <p class="header-services">наши услуги</p>
     <v-container class="block-services">
-      <v-row style="flex-wrap: nowrap; display: flex" class="justify-start">
-        <v-col cols="8" sm="5" md="4" lg="3" v-for="service in services" class="card-service ms-md-auto me-md-auto">
-          <CardService :key="service.imageUrl" :image-url="service.imageUrl" :url="service.url"
-            :text-button="service.textButton" :variants-service="service.variantsService">
-          </CardService>
-        </v-col>
-      </v-row>
+      <div class="services-navigation">
+        <button @click="scrollServices('left')" class="nav-btn nav-btn-left">
+          <v-icon>mdi-chevron-left</v-icon>
+        </button>
+        <button @click="scrollServices('right')" class="nav-btn nav-btn-right">
+          <v-icon>mdi-chevron-right</v-icon>
+        </button>
+      </div>
+      <div ref="servicesRef" class="services-scroll">
+        <v-row style="flex-wrap: nowrap; display: flex" class="justify-start">
+          <v-col cols="8" sm="5" md="4" lg="3" v-for="service in services" class="card-service ms-md-auto me-md-auto">
+            <CardService :key="service.imageUrl" :image-url="service.imageUrl" :url="service.url"
+              :text-button="service.textButton" :variants-service="service.variantsService">
+            </CardService>
+          </v-col>
+        </v-row>
+      </div>
     </v-container>
     <div id="order-form">
       <FormWindowsView></FormWindowsView>
@@ -132,7 +155,7 @@ const images = [
   justify-items: space-between;
   align-items: center;
   padding-top: 10px !important;
-  min-height: calc(100vh - 50vh - 157px)
+  min-height: calc(100vh - 50vh - 157px);
 }
 
 .header-services {
@@ -146,17 +169,57 @@ const images = [
 }
 
 .block-services {
+  margin-bottom: 100px;
+  position: relative;
+}
+
+.services-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  overflow-y: hidden;
+}
+
+.services-navigation {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
-  overflow-x: auto;
-  margin-bottom: 100px;
+  pointer-events: none;
+  z-index: 10;
+  padding: 0 5px;
 }
 
 .card-service {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20%;
+  /* width: 20%; */
+}
+
+
+.nav-btn {
+  pointer-events: auto;
+  width: clamp(2.5rem, 1.5057rem + 2.8409vw, 3.75rem);
+  height: clamp(2.5rem, 1.5057rem + 2.8409vw, 3.75rem);
+  background: rgba(217, 217, 217, 0.7);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+}
+
+
+@media (min-width: 800px) {
+  .services-navigation {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {
