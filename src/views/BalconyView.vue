@@ -109,8 +109,8 @@ const images = [
           <v-icon>mdi-chevron-right</v-icon>
         </button>
       </div>
-      <div ref="servicesRef" class="services-scroll">
-        <v-row style="flex-wrap: nowrap; display: flex" class="justify-start">
+      <div ref="servicesRef" class="services-scroll no-scrollbar">
+        <v-row style="flex-wrap: nowrap; display: flex" class="justify-start no-scrollbar">
           <v-col cols="8" sm="5" md="4" lg="3" v-for="service in services" class="card-service ms-md-auto me-md-auto">
             <CardService :key="service.imageUrl" :image-url="service.imageUrl" :url="service.url"
               :text-button="service.textButton" :variants-service="service.variantsService">

@@ -5,7 +5,7 @@
       <p class="header-our-products">Наши услуги</p>
 
       <a href="#order-form">
-        <v-row style="margin-top: 10px" class="d-flex">
+        <v-row style="margin-top: 10px;" class="d-flex">
           <v-col cols="12" md="3" sm="6">
             <div class="card-container-service">
               <p>Регулировка пластиковых окон и дверей</p>
