@@ -12,7 +12,7 @@ const servicesRef = ref<HTMLElement | null>(null)
 
 const scrollServices = (direction: 'left' | 'right') => {
   if (servicesRef.value) {
-    const scrollAmount = 370
+    const scrollAmount = 250
     servicesRef.value.scrollBy({
       left: direction === 'left' ? -scrollAmount : scrollAmount,
       behavior: 'smooth',
